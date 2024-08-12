@@ -1,8 +1,6 @@
 import { Container } from 'ui/container';
-import { useSelector } from 'react-redux';
 import { Logo } from 'components/logo';
 import { Nav } from './components/nav';
-import { UserNav } from './components/userNav';
 import { AuthNav } from './components/authNav';
 import { HeaderWrapper, Link, Navigation } from './header.styled';
 // import { selectIsLoggedIn } from '../../redux/auth/authSelectors';
