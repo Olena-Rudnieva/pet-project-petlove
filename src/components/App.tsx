@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
-import { lazy, useEffect } from 'react';
+import { lazy } from 'react';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { selectIsRefreshing } from '../redux/auth/authSelectors';
 // import { refreshUser } from '../redux/auth/authOperation';
 
@@ -21,7 +21,7 @@ const Home = lazy(() => import('pages/home'));
 // const AddPet = lazy(() => import('../pages/AddPet/AddPet'));
 
 export const App = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // const isRefreshing = useSelector(selectIsRefreshing);
   const isRefreshing = false;
 
