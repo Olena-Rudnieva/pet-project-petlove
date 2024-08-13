@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.css": "/react-homework-template/static/css/main.7acaea2f.css",
-    "main.js": "/react-homework-template/static/js/main.2cf4d1d2.js",
-    "index.html": "/react-homework-template/index.html",
-    "main.7acaea2f.css.map": "/react-homework-template/static/css/main.7acaea2f.css.map",
-    "main.2cf4d1d2.js.map": "/react-homework-template/static/js/main.2cf4d1d2.js.map"
+    "main.css": "/pet-project-petlove/static/css/main.9c33b6b4.css",
+    "main.js": "/pet-project-petlove/static/js/main.834b0a37.js",
+    "static/js/590.99a8e0f3.chunk.js": "/pet-project-petlove/static/js/590.99a8e0f3.chunk.js",
+    "static/media/heroImg.jpg": "/pet-project-petlove/static/media/heroImg.912ba60a17c1ae9cc9f3.jpg",
+    "static/media/sprite.svg": "/pet-project-petlove/static/media/sprite.b25f64c6fa82bca6cc3da11ce9b358ab.svg",
+    "index.html": "/pet-project-petlove/index.html",
+    "main.9c33b6b4.css.map": "/pet-project-petlove/static/css/main.9c33b6b4.css.map",
+    "main.834b0a37.js.map": "/pet-project-petlove/static/js/main.834b0a37.js.map",
+    "590.99a8e0f3.chunk.js.map": "/pet-project-petlove/static/js/590.99a8e0f3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.2cf4d1d2.js"
+    "static/css/main.9c33b6b4.css",
+    "static/js/main.834b0a37.js"
   ]
 }
