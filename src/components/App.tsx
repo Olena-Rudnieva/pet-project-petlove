@@ -3,7 +3,7 @@ import { lazy } from 'react';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 // import { selectIsRefreshing } from '../redux/auth/authSelectors';
 // import { refreshUser } from '../redux/auth/authOperation';
 
