@@ -3,6 +3,12 @@ export declare module User {
     id: string;
     name: string;
     email: string;
+    // name: null,
+    // email: null,
+    // avatarURL: null,
+    // phone: null,
+    // noticesFavorites: [],
+    // noticesViewed: [],
   }
 
   export interface AuthState {

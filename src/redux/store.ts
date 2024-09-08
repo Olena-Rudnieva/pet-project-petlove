@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
-  persistReducer,
+  // persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -9,8 +9,9 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import { authReducer } from './store/auth-store';
+// import storage from 'redux-persist/lib/storage';
+// import { authReducer } from './store/auth-store';
+import * as NewsStore from './store/news-store'
 
 // import { newsReducer } from './news/newsSlice';
 // import { noticesReducer } from './notices/noticesSlice';
@@ -19,16 +20,16 @@ import { authReducer } from './store/auth-store';
 
 
 
-const persistConfig = {
-  key: 'auth',
-  storage,
-  whitelist: ['token'],
-};
+// const persistConfig = {
+//   key: 'auth',
+//   storage,
+//   whitelist: ['token'],
+// };
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(persistConfig, authReducer),
-    // news: newsReducer,
+    // auth: persistReducer(persistConfig, authReducer),
+    news: NewsStore.reducer,
     // notices: noticesReducer,
     // friends: friendsReducer,
   },

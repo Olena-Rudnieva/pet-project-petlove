@@ -1,8 +1,8 @@
 import { Container } from 'ui/container';
-import { Logo } from 'components/logo';
-import { Nav } from './components/nav';
-import { AuthNav } from './components/authNav';
+
 import { HeaderWrapper, Link, Navigation } from './header.styled';
+import { AuthNav, Nav } from './components';
+import { Logo } from 'components/logo';
 // import { selectIsLoggedIn } from '../../redux/auth/authSelectors';
 
 export const Header = () => {

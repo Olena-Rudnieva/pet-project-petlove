@@ -1,5 +1,5 @@
 import sprite from 'assets/sprite.svg';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { AvatarLink, UserBarWrapper, UserIcon } from './userBar.styled';
 
 // import { selectUser } from '../../../redux/auth/authSelectors';

@@ -11,8 +11,8 @@ import { Layout } from './layout';
 import { Loader } from './loader';
 
 const Home = lazy(() => import('pages/home'));
-// const News = lazy(() => import('../pages/News/News'));
-// const Notices = lazy(() => import('../pages/Notices/Notices'));
+const News = lazy(() => import('pages/news/news'));
+const Notices = lazy(() => import('pages/notices/notices'));
 // const Friends = lazy(() => import('../pages/Friends/Friends'));
 // const Registration = lazy(() => import('../pages/Registration/Registration'));
 // const Login = lazy(() => import('../pages/Login/Login'));
@@ -37,9 +37,9 @@ export const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/home" element={<Home />} />
-          {/* <Route path="/news" element={<News />} />
+          <Route path="/news" element={<News />} />
           <Route path="/notices" element={<Notices />} />
-          <Route path="/friends" element={<Friends />} />
+          {/* <Route path="/friends" element={<Friends />} />
           <Route path="/register" element={<Registration />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />

@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { UserNavWrapper } from './userNav.styled';
-import { UserBar } from '../userBar';
+
 import { Button } from 'ui/button';
 import { ButtonSize, ButtonVariant } from 'types';
+
+import { UserBar } from '../userBar';
 import { Modal } from 'components/modal';
 
 export const UserNav = () => {
