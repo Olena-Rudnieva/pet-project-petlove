@@ -13,12 +13,12 @@ import { Loader } from './loader';
 const Home = lazy(() => import('pages/home'));
 const News = lazy(() => import('pages/news/news'));
 const Notices = lazy(() => import('pages/notices/notices'));
-// const Friends = lazy(() => import('../pages/Friends/Friends'));
-// const Registration = lazy(() => import('../pages/Registration/Registration'));
-// const Login = lazy(() => import('../pages/Login/Login'));
-// const Profile = lazy(() => import('../pages/Profile/Profile'));
+const Friends = lazy(() => import('pages/friends/friends'));
+const Registration = lazy(() => import('pages/registration/registration'));
+const Login = lazy(() => import('pages/login/login'));
+const Profile = lazy(() => import('pages/profile/profile'));
 // const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
-// const AddPet = lazy(() => import('../pages/AddPet/AddPet'));
+const AddPet = lazy(() => import('pages/addPet/addPet'));
 
 export const App = () => {
   // const dispatch = useDispatch();
@@ -39,12 +39,12 @@ export const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/news" element={<News />} />
           <Route path="/notices" element={<Notices />} />
-          {/* <Route path="/friends" element={<Friends />} />
+          <Route path="/friends" element={<Friends />} />
           <Route path="/register" element={<Registration />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/add-pet" element={<AddPet />} />
-          <Route path="*" element={<NotFound />} /> */}
+          {/* <Route path="*" element={<NotFound />} />  */}
         </Route>
       </Routes>
       <ToastContainer />
