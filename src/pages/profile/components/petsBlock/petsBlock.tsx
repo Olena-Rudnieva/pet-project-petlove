@@ -5,7 +5,7 @@ import {
   UpperWrapper,
   Wrapper,
 } from './petsBlock.styled';
-import sprite from '../../images/sprite.svg';
+import sprite from 'assets/sprite.svg';
 
 export const PetsBlock = () => {
   return (

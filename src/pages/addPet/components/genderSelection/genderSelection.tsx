@@ -6,7 +6,7 @@ import {
   StyledRadioWrapper,
 } from './genderSelection.styled';
 import { Field } from 'formik';
-import sprite from '../../../images/sprite.svg';
+import sprite from 'assets/sprite.svg';
 
 export const GenderSelection = () => {
   return (
