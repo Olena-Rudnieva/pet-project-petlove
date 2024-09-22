@@ -7,7 +7,7 @@ import {
 } from './avatar.styled';
 // import sprite from 'assets/sprite.svg';
 import { ChangeEvent } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 //   import { selectUser } from '../../redux/auth/authSelectors';
 // import { setAvatarURL } from '../../redux/auth/authSlice';
 
@@ -19,7 +19,7 @@ export const Avatar = () => {
     const file = e.target.files?.[0];
 
     if (file) {
-      const blob = new Blob([file]);
+      // const blob = new Blob([file]);
       // const objectURL = URL.createObjectURL(blob);
       //   dispatch(setAvatarURL(objectURL));
     }
