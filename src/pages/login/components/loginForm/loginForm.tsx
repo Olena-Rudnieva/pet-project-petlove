@@ -16,12 +16,12 @@ import {
 } from './loginForm.styled';
 import { Formik, Field, ErrorMessage } from 'formik';
 import { LoginSchema } from './loginShema';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import sprite from 'assets/sprite.svg';
 
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 // import { logIn } from '../../redux/auth/authOperation';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 // import { selectIsLoggedIn } from '../../redux/auth/authSelectors';
 import { Title } from 'ui/title';
 import { Button } from 'ui/button';
@@ -33,8 +33,8 @@ const initialValues = {
 
 export const LoginForm = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
   //   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   //   const handleSubmit = ({ email, password }, { resetForm }) => {

@@ -1,19 +1,19 @@
 import { Wrapper } from './userCard.styled';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 // import { logOut } from '../../redux/auth/authOperation';
 import { Button } from 'ui/button';
 import { UserBlock } from '../userBlock';
 import { PetsBlock } from '../petsBlock';
 
 export const UserCard = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    // dispatch(logOut());
-    navigate('/home');
-  };
+  // const handleClick = () => {
+  //   // dispatch(logOut());
+  //   navigate('/home');
+  // };
 
   return (
     <Wrapper>

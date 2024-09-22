@@ -17,12 +17,12 @@ import {
 import { Formik, Field, ErrorMessage } from 'formik';
 import sprite from 'assets/sprite.svg';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { RegistrationFormSchema } from './registrationShema';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 // import { register } from '../../redux/auth/authOperation';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 // import { selectIsLoggedIn } from '../../redux/auth/authSelectors';
 import { Title } from 'ui/title';
 import { Button } from 'ui/button';
@@ -37,8 +37,8 @@ export const RegistrationForm = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
     useState(false);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // const navigate = useNavigate();
   //   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const handleTogglePassword = () => {

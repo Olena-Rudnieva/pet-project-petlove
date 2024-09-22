@@ -2,17 +2,17 @@ import {
   AvatarBlock,
   AvatarWrapper,
   Form,
-  Image,
-  UserIconAvatar,
+  // Image,
+  // UserIconAvatar,
 } from './avatar.styled';
-import sprite from 'assets/sprite.svg';
+// import sprite from 'assets/sprite.svg';
 import { ChangeEvent } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 //   import { selectUser } from '../../redux/auth/authSelectors';
 // import { setAvatarURL } from '../../redux/auth/authSlice';
 
 export const Avatar = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   //   const user = useSelector(selectUser);
 
   const handleChangeAvatar = (e: ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +20,7 @@ export const Avatar = () => {
 
     if (file) {
       const blob = new Blob([file]);
-      const objectURL = URL.createObjectURL(blob);
+      // const objectURL = URL.createObjectURL(blob);
       //   dispatch(setAvatarURL(objectURL));
     }
   };

@@ -8,7 +8,7 @@ import {
   UserIcon,
   Wrapper,
 } from './userBlock.styled';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 // import { selectUser } from '../../redux/auth/authSelectors';
 import { useState } from 'react';
 import sprite from 'assets/sprite.svg';
@@ -22,7 +22,7 @@ const user = {
 };
 
 export const UserBlock = () => {
-  const [modal, setModal] = useState(false);
+  const [, setModal] = useState(false);
 
   // const user = useSelector(selectUser);
   const { name, email, phone } = user;

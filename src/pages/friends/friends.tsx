@@ -9,16 +9,16 @@ import { Title } from 'ui/title';
 import { TitleWrapper } from 'pages/notices/notices.styled';
 import { FriendsItem } from './components/friendsItem';
 
-type FriendType = {
-  _id: string;
-  title: string;
-  imageUrl: string;
-  email?: string;
-  address?: string;
-  addressUrl?: string;
-  phone?: string;
-  workDays?: { from: string; to: string }[];
-};
+// type FriendType = {
+//   _id: string;
+//   title: string;
+//   imageUrl: string;
+//   email?: string;
+//   address?: string;
+//   addressUrl?: string;
+//   phone?: string;
+//   workDays?: { from: string; to: string }[];
+// };
 
 const friends = [
   {
