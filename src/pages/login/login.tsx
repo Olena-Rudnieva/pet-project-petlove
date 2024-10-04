@@ -1,9 +1,9 @@
 import { Image, PetBlockWrapper, Wrapper } from './login.styled';
 import loginImg from 'assets/images/loginImg.png';
 import { loginPet } from 'constants/pets';
-import { Container } from 'ui/container';
 import { PetInfo } from 'components';
 import { LoginForm } from './components/loginForm';
+import { Container } from 'ui';
 
 const Login = () => {
   return (

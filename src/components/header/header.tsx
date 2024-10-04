@@ -1,8 +1,7 @@
-import { Container } from 'ui/container';
-
 import { HeaderWrapper, Link, Navigation } from './header.styled';
 import { AuthNav, Nav } from './components';
 import { Logo } from 'components/logo';
+import { Container } from 'ui';
 // import { selectIsLoggedIn } from '../../redux/auth/authSelectors';
 
 export const Header = () => {
@@ -12,7 +11,7 @@ export const Header = () => {
     <HeaderWrapper>
       <Container>
         <Navigation>
-          <Link to="/home">
+          <Link to="/">
             <Logo />
           </Link>
           <Nav />

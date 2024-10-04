@@ -11,11 +11,7 @@ import {
   Title,
   WorkingDaysWrapper,
 } from './friendsItem.styled';
-
-type WorkDay = {
-  from: string;
-  to: string;
-};
+import { WorkDay } from 'types';
 
 type FriendsItemProps = {
   item: {

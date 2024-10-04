@@ -11,7 +11,7 @@ import {
   Title,
   Value,
 } from './noticesItem.styled';
-import { Button } from 'ui/button';
+import { Button } from 'ui';
 
 interface NoticesItemProps {
   item: {

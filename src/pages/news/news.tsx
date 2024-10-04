@@ -1,33 +1,33 @@
 import { useEffect, useState } from 'react';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-
+import { fetchNews } from '../../redux/news/newsOperations';
 import { Section, Wrapper } from './news.styled';
-import { Container } from 'ui/container';
-
 import { topScroll } from 'utils';
-import { SearchField } from 'ui/searchField';
 
-import { Pagination } from 'ui/pagination';
-// import { NewsSelectors } from 'redux';
-import { Title } from 'ui/title';
+import { Container, Pagination, SearchField, Title } from 'ui';
+import {
+  selectNews,
+  selectTotalPagesNews,
+} from '../../redux/news/newsSelectors';
+// import { NewsItem } from 'components';
+import { AppDispatch } from 'redux/store';
 
 interface PageChangeEvent {
   selected: number;
 }
 
 const News = () => {
-  const [selectedPage, setSelectedPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState('');
-  const dispatch = useDispatch();
+  const [selectedPage, setSelectedPage] = useState<number>(1);
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const dispatch = useDispatch<AppDispatch>();
 
-  // const news = useSelector(NewsSelectors.news);
-  //   const totalPages = useSelector(selectTotalPages);
-  const totalPages = 10;
+  const news = useSelector(selectNews);
+  console.log('news', news);
+
+  const totalPages = useSelector(selectTotalPagesNews) ?? 1;
 
   const handlePageChange = (e: PageChangeEvent) => {
-    // console.log(`Selected page: ${page}`);
-    // setSelectedPage(page);
     setSelectedPage(e.selected + 1);
     topScroll();
   };
@@ -44,7 +44,7 @@ const News = () => {
   };
 
   useEffect(() => {
-    // dispatch(fetchNews(selectedPage));
+    dispatch(fetchNews(selectedPage));
   }, [dispatch, selectedPage]);
 
   return (

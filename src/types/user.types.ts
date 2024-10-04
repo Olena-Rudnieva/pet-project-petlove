@@ -1,23 +1,9 @@
-export declare module User {
-  export interface User {
-    id: string;
-    name: string;
-    email: string;
-    // name: null,
-    // email: null,
-    // avatarURL: null,
-    // phone: null,
-    // noticesFavorites: [],
-    // noticesViewed: [],
-  }
-
-  export interface AuthState {
-    isLoggedIn: boolean;
-    user: User | null;
-    isRefreshing: boolean;
-  }
-
-  export interface RootState {
-    auth: AuthState;
-  }
+export interface User {
+  _id?: string;
+  name: string | null;
+  email: string | null;
+  avatarURL: string | null;
+  phone: string | null;
+  noticesFavorites: any[];
+  noticesViewed: any[];
 }

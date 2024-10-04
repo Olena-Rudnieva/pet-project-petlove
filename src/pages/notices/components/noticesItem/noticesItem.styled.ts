@@ -7,6 +7,9 @@ export const NoticesItemWrapper = styled.li`
   border-radius: 16px;
   background-color: ${theme.colors.white};
   box-shadow: ${theme.boxShadow.card};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const ImageWrapper = styled.div`
@@ -43,6 +46,8 @@ export const Text = styled.p`
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const List = styled.ul`

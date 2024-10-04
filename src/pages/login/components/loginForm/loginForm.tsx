@@ -18,13 +18,12 @@ import { Formik, Field, ErrorMessage } from 'formik';
 import { LoginSchema } from './loginShema';
 import { useState } from 'react';
 import sprite from 'assets/sprite.svg';
+import { Button, Title } from 'ui';
 
 // import { useDispatch } from 'react-redux';
 // import { logIn } from '../../redux/auth/authOperation';
 // import { useNavigate } from 'react-router-dom';
 // import { selectIsLoggedIn } from '../../redux/auth/authSelectors';
-import { Title } from 'ui/title';
-import { Button } from 'ui/button';
 
 const initialValues = {
   email: '',

@@ -36,7 +36,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/home" element={<Home />} />
+          {/* <Route path="/home" element={<Home />} /> */}
           <Route path="/news" element={<News />} />
           <Route path="/notices" element={<Notices />} />
           <Route path="/friends" element={<Friends />} />

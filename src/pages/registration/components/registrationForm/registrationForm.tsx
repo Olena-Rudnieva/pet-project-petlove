@@ -24,8 +24,9 @@ import { RegistrationFormSchema } from './registrationShema';
 // import { register } from '../../redux/auth/authOperation';
 // import { useNavigate } from 'react-router-dom';
 // import { selectIsLoggedIn } from '../../redux/auth/authSelectors';
-import { Title } from 'ui/title';
+
 import { Button } from 'ui/button';
+import { Title } from 'ui';
 
 const initialValues = {
   name: '',

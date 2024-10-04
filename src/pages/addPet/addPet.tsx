@@ -1,8 +1,8 @@
 import { Image, PetBlockWrapper, Section, Wrapper } from './addPet.styled';
 import addPetImg from 'assets/images/addPetImg.png';
-import { Container } from 'ui/container';
 import { AddPetForm } from './components/addPetForm/addPetForm';
 import { PetInfo } from 'components';
+import { Container } from 'ui';
 
 const pet = {
   id: '1',
