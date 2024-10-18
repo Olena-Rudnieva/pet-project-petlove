@@ -21,9 +21,15 @@ const token = {
   },
 };
 
+interface RegisterCredentials {
+  name: string;
+  email: string;
+  password: string;
+}
+
 export const register = createAsyncThunk(
   'auth/register',
-  async (credentials, thunkAPI) => {
+  async (credentials: RegisterCredentials, thunkAPI) => {
     try {
       const res = await axios.post(REGISTER_URL, credentials);
       token.set(res.data.token);
@@ -35,9 +41,14 @@ export const register = createAsyncThunk(
   }
 );
 
+interface LoginCredentials {
+  email: string;
+  password: string;
+}
+
 export const logIn = createAsyncThunk(
   'auth/login',
-  async (credentials, thunkAPI) => {
+  async (credentials: LoginCredentials, thunkAPI) => {
     try {
       const res = await axios.post(LOGIN_URL, credentials);
       token.set(res.data.token);

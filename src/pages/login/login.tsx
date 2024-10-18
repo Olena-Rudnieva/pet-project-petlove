@@ -9,7 +9,6 @@ const Login = () => {
   return (
     <Container>
       <Wrapper>
-        {/* <PetBlock img={loginImg} pet={loginPet} /> */}
         <PetBlockWrapper>
           <Image src={loginImg} alt="Pet" />
           {loginPet && <PetInfo pet={loginPet} />}

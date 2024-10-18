@@ -4,6 +4,9 @@ import styled from 'styled-components';
 
 export const NewsItemWrapper = styled.li`
   width: 361px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const ImageWrapper = styled.div`

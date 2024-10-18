@@ -14,11 +14,13 @@ export const NewsItem = ({ item }: any) => {
 
   return (
     <NewsItemWrapper>
-      <ImageWrapper>
-        <Image src={imgUrl} alt={title} />
-      </ImageWrapper>
-      <Title>{title}</Title>
-      <Text>{text}</Text>
+      <div>
+        <ImageWrapper>
+          <Image src={imgUrl} alt={title} />
+        </ImageWrapper>
+        <Title>{title}</Title>
+        <Text>{text}</Text>
+      </div>
       <BottomList>
         {/* <Date>{formattedDate(date)}</Date> */}
         <Link to={url} target="_blank" rel="noopener noreferrer">

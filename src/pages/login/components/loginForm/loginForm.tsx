@@ -1,6 +1,5 @@
 import {
   ButtonWrapper,
-  //   ErrorIcon,
   ErrorText,
   EyeIconInvisible,
   EyeIconVisible,
@@ -14,43 +13,49 @@ import {
   TitleWrapper,
   Wrapper,
 } from './loginForm.styled';
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage, FormikHelpers } from 'formik';
 import { LoginSchema } from './loginShema';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import sprite from 'assets/sprite.svg';
 import { Button, Title } from 'ui';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { logIn, selectIsLoggedIn } from '../../../../redux/auth';
 
-// import { useDispatch } from 'react-redux';
-// import { logIn } from '../../redux/auth/authOperation';
-// import { useNavigate } from 'react-router-dom';
-// import { selectIsLoggedIn } from '../../redux/auth/authSelectors';
+interface LoginData {
+  email: string;
+  password: string;
+}
 
-const initialValues = {
+const initialValues: LoginData = {
   email: '',
   password: '',
 };
 
 export const LoginForm = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  //   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  //   const handleSubmit = ({ email, password }, { resetForm }) => {
-  //     dispatch(logIn({ email, password }));
-  //     resetForm();
-  //   };
-  const handleSubmit = () => {};
+  const handleSubmit = (
+    { email, password }: LoginData,
+    { resetForm }: FormikHelpers<LoginData>
+  ) => {
+    dispatch(logIn({ email, password }));
+    resetForm();
+  };
 
   const handleTogglePassword = () => {
     setIsPasswordVisible(prevState => !prevState);
   };
 
-  //   useEffect(() => {
-  //     if (isLoggedIn) {
-  //       navigate('/profile');
-  //     }
-  //   }, [navigate, isLoggedIn]);
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/profile');
+    }
+  }, [navigate, isLoggedIn]);
 
   return (
     <Wrapper>
@@ -66,24 +71,16 @@ export const LoginForm = () => {
         validationSchema={LoginSchema}
       >
         {({ handleSubmit, errors, touched }) => (
-          <form>
+          <form onSubmit={handleSubmit}>
             <FormWrapper>
-              <InputWrapper
-              //   haserror={touched.email && errors.email}
-              >
+              <InputWrapper>
                 <label>
                   <Field type="email" name="email" placeholder=" Email" />
-                  {/* <ErrorIcon haserror={touched.email && errors.email}>
-                    ✕
-                  </ErrorIcon> */}
                   <ErrorMessage name="email" component={ErrorText} />
                 </label>
               </InputWrapper>
 
-              <InputWrapper
-              // haserror={touched.password && errors.password}
-              // hassuccess={touched.password && !errors.password}
-              >
+              <InputWrapper>
                 <label>
                   <Field
                     type={isPasswordVisible ? 'text' : 'password'}
@@ -95,12 +92,6 @@ export const LoginForm = () => {
                   ) : (
                     <EyeIconInvisible onClick={handleTogglePassword} />
                   )}
-                  {/* <ErrorIcon
-                    haserror={touched.password && errors.password}
-                    erroriconright="true"
-                  >
-                    ✕
-                  </ErrorIcon> */}
                   {touched.password && !errors.password && (
                     <SuccessMessage>Password is secure</SuccessMessage>
                   )}

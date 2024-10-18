@@ -15,7 +15,6 @@ export const AddPetForm = () => {
     values: AddPetFormValues,
     { setSubmitting }: FormikHelpers<AddPetFormValues>
   ) => {
-    console.log(values);
     setSubmitting(false);
   };
 

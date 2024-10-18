@@ -1,6 +1,5 @@
 import {
   ButtonWrapper,
-  //   ErrorIcon,
   ErrorText,
   EyeIconInvisible,
   EyeIconVisible,
@@ -14,33 +13,38 @@ import {
   TitleWrapper,
   Wrapper,
 } from './registrationForm.styled';
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage, FormikHelpers } from 'formik';
 import sprite from 'assets/sprite.svg';
-
-import { useState } from 'react';
-
+import { useEffect, useState } from 'react';
 import { RegistrationFormSchema } from './registrationShema';
-// import { useDispatch } from 'react-redux';
-// import { register } from '../../redux/auth/authOperation';
-// import { useNavigate } from 'react-router-dom';
-// import { selectIsLoggedIn } from '../../redux/auth/authSelectors';
-
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Button } from 'ui/button';
 import { Title } from 'ui';
+import { useSelector } from 'react-redux';
+import { register, selectIsLoggedIn } from '../../../../redux/auth';
 
-const initialValues = {
+interface RegistrationData {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
+const initialValues: RegistrationData = {
   name: '',
   email: '',
   password: '',
+  confirmPassword: '',
 };
 
 export const RegistrationForm = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
     useState(false);
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  //   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const handleTogglePassword = () => {
     setIsPasswordVisible(prevState => !prevState);
@@ -50,18 +54,21 @@ export const RegistrationForm = () => {
     setIsConfirmPasswordVisible(prevState => !prevState);
   };
 
-  //   const handleSubmit = ({ name, email, password }, { resetForm }) => {
-  //     dispatch(register({ name, email, password }));
-  //     resetForm();
-  //   };
+  const handleSubmit = (
+    { name, email, password }: Omit<RegistrationData, 'confirmPassword'>,
+    { resetForm }: FormikHelpers<RegistrationData>
+  ) => {
+    console.log(name, email, password);
 
-  const handleSubmit = () => {};
+    dispatch(register({ name, email, password }));
+    resetForm();
+  };
 
-  //   useEffect(() => {
-  //     if (isLoggedIn) {
-  //       navigate('/profile');
-  //     }
-  //   }, [navigate, isLoggedIn]);
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/profile');
+    }
+  }, [navigate, isLoggedIn]);
 
   return (
     <Wrapper>
@@ -77,35 +84,21 @@ export const RegistrationForm = () => {
         {({ handleSubmit, errors, touched }) => (
           <form onSubmit={handleSubmit}>
             <FormWrapper>
-              <InputWrapper
-              //   haserror={touched.name && errors.name}
-              >
+              <InputWrapper>
                 <label>
                   <Field type="text" name="name" placeholder="Name" />
-                  {/* <ErrorIcon haserror={touched.name && errors.name}>
-                    ✕
-                  </ErrorIcon> */}
-
                   <ErrorMessage name="name" component={ErrorText} />
                 </label>
               </InputWrapper>
 
-              <InputWrapper
-              //    haserror={touched.email && errors.email}
-              >
+              <InputWrapper>
                 <label>
                   <Field type="email" name="email" placeholder=" Email" />
-                  {/* <ErrorIcon haserror={touched.email && errors.email}>
-                    ✕
-                  </ErrorIcon> */}
                   <ErrorMessage name="email" component={ErrorText} />
                 </label>
               </InputWrapper>
 
-              <InputWrapper
-              // haserror={touched.password && errors.password}
-              // hassuccess={touched.password && !errors.password}
-              >
+              <InputWrapper>
                 <label>
                   <Field
                     type={isPasswordVisible ? 'text' : 'password'}
@@ -117,12 +110,6 @@ export const RegistrationForm = () => {
                   ) : (
                     <EyeIconInvisible onClick={handleTogglePassword} />
                   )}
-                  {/* <ErrorIcon
-                    haserror={touched.password && errors.password}
-                    erroriconright="true"
-                  >
-                    ✕
-                  </ErrorIcon> */}
                   {touched.password && !errors.password && (
                     <SuccessMessage>Password is secure</SuccessMessage>
                   )}
@@ -135,9 +122,7 @@ export const RegistrationForm = () => {
                 </label>
               </InputWrapper>
 
-              <InputWrapper
-              // haserror={touched.confirmPassword && errors.confirmPassword}
-              >
+              <InputWrapper>
                 <label>
                   <Field
                     type={isConfirmPasswordVisible ? 'text' : 'password'}
@@ -149,12 +134,6 @@ export const RegistrationForm = () => {
                   ) : (
                     <EyeIconInvisible onClick={handleToggleConfirmPassword} />
                   )}
-                  {/* <ErrorIcon
-                    haserror={touched.confirmPassword && errors.confirmPassword}
-                    erroriconright="true"
-                  >
-                    ✕
-                  </ErrorIcon> */}
                   <ErrorMessage name="confirmPassword" component={ErrorText} />
                 </label>
               </InputWrapper>

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { fetchNews } from '../../redux/news/newsOperations';
-import { Section, Wrapper } from './news.styled';
+import { List, Section, Wrapper } from './news.styled';
 import { topScroll } from 'utils';
 
 import { Container, Pagination, SearchField, Title } from 'ui';
@@ -12,6 +12,8 @@ import {
 } from '../../redux/news/newsSelectors';
 // import { NewsItem } from 'components';
 import { AppDispatch } from 'redux/store';
+import { NewsItem } from 'components';
+import { News as NewsType } from 'types';
 
 interface PageChangeEvent {
   selected: number;
@@ -22,7 +24,7 @@ const News = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const dispatch = useDispatch<AppDispatch>();
 
-  const news = useSelector(selectNews);
+  const news = useSelector(selectNews) as NewsType[];
   console.log('news', news);
 
   const totalPages = useSelector(selectTotalPagesNews) ?? 1;
@@ -38,7 +40,6 @@ const News = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Implement search logic here
     console.log('Search query submitted:', searchQuery);
     // Example: dispatch(fetchNews(selectedPage, searchQuery));
   };
@@ -59,11 +60,11 @@ const News = () => {
           />
         </Wrapper>
 
-        {/* <List>
+        <List>
           {news?.map(item => (
             <NewsItem key={item._id} item={item} />
           ))}
-        </List> */}
+        </List>
         <Pagination totalPages={totalPages} onPageChange={handlePageChange} />
       </Container>
     </Section>
