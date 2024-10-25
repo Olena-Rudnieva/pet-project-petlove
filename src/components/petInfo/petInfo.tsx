@@ -11,15 +11,15 @@ import {
 } from './petInfo.styled';
 
 interface PetInfoProps {
-  pet: Pet.Pet;
+  pet: Pet;
 }
 
 export const PetInfo = ({ pet }: PetInfoProps) => {
-  const { avatar, name, birthday, description } = pet;
+  const { imgURL, name, birthday, title } = pet;
   return (
     <InfoWrapper>
       <Avatar>
-        <Image src={avatar} alt="Avatar" />
+        <Image src={imgURL} alt="Avatar" />
       </Avatar>
       <div>
         <TextWrapper>
@@ -28,7 +28,7 @@ export const PetInfo = ({ pet }: PetInfoProps) => {
             Birthday: <Accent>{birthday}</Accent>
           </Text>
         </TextWrapper>
-        <InfoText>{description}</InfoText>
+        <InfoText>{title}</InfoText>
       </div>
     </InfoWrapper>
   );

@@ -7,3 +7,4 @@ export * from './loader';
 export * from './modal';
 export * from './newsItem';
 export * from './petInfo';
+export * from './privateRoute';

@@ -86,16 +86,6 @@ export const SuccessMessage = styled.div`
   margin-bottom: 12px;
 `;
 
-// export const ErrorIcon = styled.span`
-//   position: absolute;
-//   top: 15px;
-//   right: ${props => (props.erroriconright ? '50px' : '16px')};
-//   font-size: 22px;
-//   font-size: ${theme.fontWeight.bold};
-//   color: ${theme.colors.red};
-//   display: ${props => (props.haserror ? 'block' : 'none')};
-// `;
-
 export const EyeIconInvisible = styled(AiOutlineEyeInvisible)`
   position: absolute;
   top: 26px;

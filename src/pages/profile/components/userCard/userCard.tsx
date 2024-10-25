@@ -1,19 +1,17 @@
 import { Wrapper } from './userCard.styled';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
 import { UserBlock } from '../userBlock';
 import { PetsBlock } from '../petsBlock';
 import { Button } from 'ui';
-import { logOut } from '../../../../redux/auth';
+import { ButtonSize, ButtonVariant } from 'types';
+import { Modal } from 'components';
+import { useState } from 'react';
+import { ModalApproveAction } from 'components/modal/components';
 
 export const UserCard = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleClick = () => {
-    dispatch(logOut());
-    navigate('/');
+  const toggleModal = () => {
+    setIsModalOpen(prevState => !prevState);
   };
 
   return (
@@ -23,13 +21,17 @@ export const UserCard = () => {
 
       <Button
         type={'button'}
-        // width={'136px'}
-        // height={'50px'}
-        onClick={handleClick}
-        // beigebackground="true"
+        onClick={toggleModal}
+        size={ButtonSize.small}
+        variant={ButtonVariant.beige}
       >
         LOG OUT
       </Button>
+      {isModalOpen && (
+        <Modal isOpen={isModalOpen} onClose={toggleModal} width="448px">
+          <ModalApproveAction handleModalToggle={toggleModal} />
+        </Modal>
+      )}
     </Wrapper>
   );
 };

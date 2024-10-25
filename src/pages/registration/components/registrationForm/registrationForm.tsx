@@ -23,6 +23,7 @@ import { Button } from 'ui/button';
 import { Title } from 'ui';
 import { useSelector } from 'react-redux';
 import { register, selectIsLoggedIn } from '../../../../redux/auth';
+import { AppDispatch } from 'redux/store';
 
 interface RegistrationData {
   name: string;
@@ -42,7 +43,7 @@ export const RegistrationForm = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
     useState(false);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const isLoggedIn = useSelector(selectIsLoggedIn);
 

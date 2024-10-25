@@ -1,11 +1,12 @@
 import { HeaderWrapper, Link, Navigation } from './header.styled';
-import { AuthNav, Nav } from './components';
+import { AuthNav, Nav, UserNav } from './components';
 import { Logo } from 'components/logo';
 import { Container } from 'ui';
-// import { selectIsLoggedIn } from '../../redux/auth/authSelectors';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from '../../redux/auth';
 
 export const Header = () => {
-  // const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <HeaderWrapper>
@@ -15,8 +16,7 @@ export const Header = () => {
             <Logo />
           </Link>
           <Nav />
-          {/* {isLoggedIn ? <UserNav /> : <AuthNav />} */}
-          <AuthNav />
+          {isLoggedIn ? <UserNav /> : <AuthNav />}
         </Navigation>
       </Container>
     </HeaderWrapper>

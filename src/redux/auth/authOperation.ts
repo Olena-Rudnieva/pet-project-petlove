@@ -2,6 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   BASE_URL,
+  CURRENT_USER_EDIT_URL,
   CURRENT_USER_FULL_URL,
   CURRENT_USER_URL,
   LOGIN_URL,
@@ -79,7 +80,25 @@ export const fetchCurrentUserFull = createAsyncThunk(
     try {
       const res = await axios.get(CURRENT_USER_FULL_URL);
       token.set(res.data.token);
-      console.log(res.data);
+      return res.data;
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+interface EditUserCredentials {
+  name: string;
+  email: string;
+  phone: string;
+  avatar?: string;
+}
+
+export const uploadUser = createAsyncThunk(
+  'auth/uploadUser',
+  async (userData: EditUserCredentials, thunkAPI) => {
+    try {
+      const res = await axios.patch(CURRENT_USER_EDIT_URL, userData);
       return res.data;
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);

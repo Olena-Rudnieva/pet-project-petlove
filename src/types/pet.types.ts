@@ -1,11 +1,9 @@
-export declare module Pet {
-    export interface Pet {
-        id?: string;
-        avatar?: string;
-        name: string;
-        birthday: string;
-        description: string;
-    } 
- 
-  }
-  
+export interface Pet {
+  id?: string;
+  name?: string;
+  imgURL?: string;
+  species?: string;
+  birthday?: string;
+  title?: string;
+  sex?: string;
+}

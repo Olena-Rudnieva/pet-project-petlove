@@ -1,3 +1,4 @@
+import { PetsList } from '../petsList';
 import {
   Link,
   PlusIcon,
@@ -19,6 +20,7 @@ export const PetsBlock = () => {
           </PlusIcon>
         </Link>
       </UpperWrapper>
+      <PetsList />
     </Wrapper>
   );
 };

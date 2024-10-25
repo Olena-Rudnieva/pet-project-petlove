@@ -8,28 +8,24 @@ import {
   UserIcon,
   Wrapper,
 } from './userBlock.styled';
-// import { useSelector } from 'react-redux';
-// import { selectUser } from '../../redux/auth/authSelectors';
 import { useState } from 'react';
 import sprite from 'assets/sprite.svg';
-
 import { Avatar } from 'components/avatar';
-
-const user = {
-  name: 'test',
-  email: 'test',
-  phone: 'test',
-};
+import { Modal } from 'components';
+import { ModalEditUser } from 'components/modal/components';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../../../redux/auth';
 
 export const UserBlock = () => {
-  const [, setModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // const user = useSelector(selectUser);
-  const { name, email, phone } = user;
-
-  const handleModal = () => {
-    setModal(state => !state);
+  const toggleModal = () => {
+    setIsModalOpen(prevState => !prevState);
   };
+
+  const user = useSelector(selectUser);
+
+  const { name, email, phone } = user;
 
   return (
     <Wrapper>
@@ -41,16 +37,16 @@ export const UserBlock = () => {
           </UserIcon>
         </StyledUser>
         <Avatar />
-        <EditBtn onClick={handleModal}>
+        <EditBtn onClick={toggleModal}>
           <EditIcon>
             <use href={sprite + '#icon-edit'}></use>
           </EditIcon>
         </EditBtn>
-        {/* {modal && (
-          <BasicModalWindow handleModalToggle={handleModal}>
-            <ModalEditUser handleModalToggle={handleModal} />
-          </BasicModalWindow>
-        )} */}
+        {isModalOpen && (
+          <Modal isOpen={isModalOpen} onClose={toggleModal} width="480px">
+            <ModalEditUser handleModalToggle={toggleModal} />
+          </Modal>
+        )}
       </UpperWrapper>
       <Title>My information</Title>
 

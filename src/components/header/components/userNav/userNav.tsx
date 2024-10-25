@@ -6,6 +6,7 @@ import { ButtonSize, ButtonVariant } from 'types';
 import { UserBar } from '../userBar';
 import { Modal } from 'components/modal';
 import { Button } from 'ui';
+import { ModalApproveAction } from 'components/modal/components';
 
 export const UserNav = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,8 +27,8 @@ export const UserNav = () => {
       </Button>
       <UserBar />
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={toggleModal} title="Example Modal">
-          <p>This is the content of the modal</p>
+        <Modal isOpen={isModalOpen} onClose={toggleModal} width="448px">
+          <ModalApproveAction handleModalToggle={toggleModal} />
         </Modal>
       )}
     </UserNavWrapper>

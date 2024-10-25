@@ -4,13 +4,11 @@ import { useDispatch } from 'react-redux';
 import { fetchNews } from '../../redux/news/newsOperations';
 import { List, Section, Wrapper } from './news.styled';
 import { topScroll } from 'utils';
-
 import { Container, Pagination, SearchField, Title } from 'ui';
 import {
   selectNews,
   selectTotalPagesNews,
 } from '../../redux/news/newsSelectors';
-// import { NewsItem } from 'components';
 import { AppDispatch } from 'redux/store';
 import { NewsItem } from 'components';
 import { News as NewsType } from 'types';
@@ -25,7 +23,6 @@ const News = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const news = useSelector(selectNews) as NewsType[];
-  console.log('news', news);
 
   const totalPages = useSelector(selectTotalPagesNews) ?? 1;
 

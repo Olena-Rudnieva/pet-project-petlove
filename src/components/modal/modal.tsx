@@ -1,15 +1,10 @@
-import {
-  Backdrop,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-} from './modal.styled';
+import { Backdrop, CloseButton, ModalWrapper } from './modal.styled';
+import ReactDOM from 'react-dom';
+import { IoMdClose } from 'react-icons/io';
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  title?: string;
   children: React.ReactNode;
   width?: string;
   closeOnBackdropClick?: boolean;
@@ -18,7 +13,6 @@ interface ModalProps {
 export const Modal = ({
   isOpen,
   onClose,
-  title,
   children,
   width = '500px',
   closeOnBackdropClick = true,
@@ -33,19 +27,15 @@ export const Modal = ({
     }
   };
 
-  return (
+  return ReactDOM.createPortal(
     <Backdrop onClick={handleBackdropClick}>
-      <ModalContent width={width}>
-        {title && (
-          <ModalHeader>
-            <h2>{title}</h2>
-          </ModalHeader>
-        )}
-        <ModalBody>{children}</ModalBody>
-        <ModalFooter>
-          <button onClick={onClose}>Close</button>
-        </ModalFooter>
-      </ModalContent>
-    </Backdrop>
+      <ModalWrapper width={width}>
+        <CloseButton onClick={onClose}>
+          <IoMdClose size="24" />
+        </CloseButton>
+        {children}
+      </ModalWrapper>
+    </Backdrop>,
+    document.getElementById('modal') as HTMLElement
   );
 };

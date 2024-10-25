@@ -27,8 +27,8 @@ export const Avatar = () => {
   return (
     <AvatarBlock>
       <AvatarWrapper>
-        {/* {user.avatarURL ? (
-          <Image src={user.avatarURL} alt="User" />
+        {/* {user.avatar ? (
+          <Image src={user.avatar} alt="User" />
         ) : (
           <UserIconAvatar>
             <use href={sprite + '#icon-user'}></use>

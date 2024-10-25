@@ -6,6 +6,7 @@ import {
   logOut,
   refreshUser,
   register,
+  uploadUser,
 } from './authOperation';
 import { User } from 'types';
 
@@ -20,7 +21,7 @@ const initialState: UserState = {
   user: {
     name: null,
     email: null,
-    avatarURL: null,
+    avatar: null,
     phone: null,
     noticesFavorites: [],
     noticesViewed: [],
@@ -35,13 +36,13 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setAvatarURL: (state, action) => {
-      state.user.avatarURL = action.payload;
+      state.user.avatar = action.payload;
     },
-    uploadUser: (state, action) => {
-      state.user.name = action.payload.name;
-      state.user.email = action.payload.email;
-      state.user.phone = action.payload.phone;
-    },
+    // uploadUser: (state, action) => {
+    //   state.user.name = action.payload.name;
+    //   state.user.email = action.payload.email;
+    //   state.user.phone = action.payload.phone;
+    // },
   },
   extraReducers: builder => {
     builder
@@ -67,17 +68,23 @@ const authSlice = createSlice({
       .addCase(fetchCurrentUserFull.fulfilled, (state, action) => {
         state.user.name = action.payload.name;
         state.user.email = action.payload.email;
-        state.user.avatarURL = action.payload.avatar;
+        state.user.avatar = action.payload.avatar;
         state.user.phone = action.payload.phone;
         state.user.noticesViewed = action.payload.noticesViewed;
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
+      .addCase(uploadUser.fulfilled, (state, action) => {
+        state.user.name = action.payload.name;
+        state.user.email = action.payload.email;
+        state.user.phone = action.payload.phone;
+        state.user.avatar = action.payload.avatar;
+      })
       .addCase(logOut.fulfilled, state => {
         state.user = {
           name: null,
           email: null,
-          avatarURL: null,
+          avatar: null,
           phone: null,
           noticesFavorites: [],
           noticesViewed: [],
@@ -101,4 +108,4 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-export const { setAvatarURL, uploadUser } = authSlice.actions;
+export const { setAvatarURL } = authSlice.actions;

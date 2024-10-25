@@ -50,3 +50,94 @@ export const PetIcon = styled.svg`
   height: 44px;
   fill: ${theme.colors.accent};
 `;
+
+export const FormWrapper = styled.div`
+  margin-bottom: 16px;
+`;
+
+interface InputWrapperProps {
+  haserror?: boolean;
+  hassuccess?: boolean;
+}
+
+export const InputWrapper = styled.div<InputWrapperProps>`
+  margin-bottom: 16px;
+  max-width: 424px;
+  position: relative;
+  width: 100%;
+
+  input {
+    width: 100%;
+    padding: 16px;
+    font-size: ${theme.fontSizes.xs};
+    color: ${theme.colors.black};
+    font-weight: ${theme.fontWeight.medium};
+    line-height: 1.25;
+    border: 1px solid
+      ${props =>
+        props.haserror
+          ? theme.colors.red
+          : props.hassuccess
+          ? theme.colors.green
+          : theme.colors.lightGrey};
+    border-radius: 30px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color ${theme.transition};
+
+    &:focus {
+      border-color: ${theme.colors.accent};
+    }
+
+    .error {
+      border: 1px solid ${theme.colors.red};
+    }
+  }
+`;
+
+export const ErrorText = styled.div`
+  color: ${theme.colors.red};
+  font-size: ${theme.fontSizes.xxxs};
+  font-weight: ${theme.fontWeight.medium};
+  line-height: 1.1667;
+  letter-spacing: -0.36px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+`;
+
+export const SuccessMessage = styled.div`
+  color: ${theme.colors.green};
+  font-size: ${theme.fontSizes.xxxs};
+  font-weight: ${theme.fontWeight.medium};
+  line-height: 1.1667;
+  letter-spacing: -0.36px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+`;
+
+export const ButtonWrapper = styled.div`
+  display: inline-block;
+  margin-top: 16px;
+  margin-bottom: 48px;
+`;
+
+export const CalendarIcon = styled.svg`
+  width: 20px;
+  height: 20px;
+  stroke: ${theme.colors.black};
+  fill: transparent;
+  position: absolute;
+  top: 16px;
+  left: 174px;
+`;
+
+export const Label = styled.label`
+  width: 210px;
+  display: block;
+`;
+
+export const OptionsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+`;

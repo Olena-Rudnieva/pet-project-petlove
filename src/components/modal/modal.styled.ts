@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from 'constants/theme';
 
 export const Backdrop = styled.div`
   position: fixed;
@@ -6,7 +7,7 @@ export const Backdrop = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(38, 38, 38, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,18 +24,37 @@ export const ModalContent = styled.div<{ width: string }>`
   position: relative;
 `;
 
-export const ModalHeader = styled.div`
-  margin-bottom: 20px;
-  h2 {
-    margin: 0;
-  }
-`;
-
-export const ModalBody = styled.div`
-  margin-bottom: 20px;
-`;
-
-export const ModalFooter = styled.div`
+export const ModalWrapper = styled.div<{ width: string }>`
+  position: absolute;
+  overflow-y: auto;
   display: flex;
-  justify-content: flex-end;
+  max-height: 100%;
+  width: ${({ width }) => width};
+  justify-content: center;
+  border-radius: 24px;
+  background-color: ${theme.colors.white};
+  padding: 50px;
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  z-index: 200;
+  cursor: pointer;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    stroke: ${theme.colors.black};
+    transition: transform ${theme.transition}, stroke ${theme.transition};
+
+    &:hover,
+    &:focus {
+      stroke: ${theme.colors.accent};
+      transform: scale(1.2);
+    }
+  }
 `;

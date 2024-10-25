@@ -22,6 +22,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { logIn, selectIsLoggedIn } from '../../../../redux/auth';
+import { AppDispatch } from 'redux/store';
 
 interface LoginData {
   email: string;
@@ -36,7 +37,7 @@ const initialValues: LoginData = {
 export const LoginForm = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const handleSubmit = (
