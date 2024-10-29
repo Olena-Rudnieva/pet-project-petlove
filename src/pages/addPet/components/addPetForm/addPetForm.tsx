@@ -4,14 +4,20 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import sprite from 'assets/sprite.svg';
 import Select from 'react-select';
+import { useNavigate } from 'react-router-dom';
 import {
+  BlockWrapper,
   ButtonWrapper,
   CalendarIcon,
+  customStyles,
   ErrorText,
   FormWrapper,
+  Image,
+  ImageWrapper,
   InputWrapper,
   Label,
   OptionsWrapper,
+  PetIcon,
   Text,
   Title,
   TitleWrapper,
@@ -23,20 +29,12 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from 'redux/store';
 import { addPet } from '../../../../redux/pets';
-
-const speciesOptions = [
-  { value: 'dog', label: 'Dog' },
-  { value: 'cat', label: 'Cat' },
-  { value: 'monkey', label: 'Monkey' },
-  { value: 'bird', label: 'Bird' },
-  { value: 'fish', label: 'Fish' },
-  { value: 'reptile', label: 'Reptile' },
-  { value: 'other', label: 'Other' },
-];
+import { speciesOptions } from 'constants/addPetOptions';
+import { ButtonSize, ButtonVariant } from 'types';
 
 interface AddPetFormData {
   name: string;
-  imgURL?: string;
+  imgURL: string;
   species: string;
   birthday: string;
   title?: string;
@@ -45,68 +43,23 @@ interface AddPetFormData {
 
 const initialValues: AddPetFormData = {
   name: '',
-  imgURL: 'https://test.webp',
+  imgURL: '',
   species: '',
   birthday: '',
   title: '',
-  sex: 'female',
+  sex: '',
 };
 
 export const AddPetForm = () => {
   const [birthday, setBirthday] = useState<Date | null>(null);
-  const [selectedSpecies, setSelectedSpecies] = useState({
-    value: '',
-    label: '',
-  });
+  const [selectedSpecies, setSelectedSpecies] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
 
   const handleSpeciesChange = (selectedOption: any) => {
     setSelectedSpecies(selectedOption);
-  };
-
-  const customStyles = {
-    control: (provided: any, state: any) => ({
-      ...provided,
-      width: '100%',
-      padding: '8px 8px 8px 14px',
-      fontSize: '16px',
-      color: '#000',
-      fontWeight: '500',
-      lineHeight: '20px',
-      letterSpacing: '3%',
-      border: state.isFocused ? '1px solid #F6B83D' : '1px solid #e0e0e0',
-      borderRadius: '30px',
-      boxShadow: 'none',
-      '&:hover': {
-        borderColor: '#F6B83D',
-      },
-    }),
-    placeholder: (provided: any) => ({
-      ...provided,
-      color: '#a0a0a0',
-      fontWeight: '500',
-    }),
-    menu: (provided: any) => ({
-      ...provided,
-      borderRadius: '10px',
-      marginTop: '0',
-    }),
-    option: (provided: any, state: any) => ({
-      ...provided,
-      backgroundColor: state.isSelected ? '#F6B83D' : '#fff',
-      color: state.isSelected ? '#fff' : '#000',
-      border: 'none',
-      boxShadow: 'none',
-      '&:hover': {
-        backgroundColor: '#F6B83D',
-        color: '#fff',
-      },
-    }),
-    singleValue: (provided: any) => ({
-      ...provided,
-      color: '#000',
-    }),
   };
 
   const handleSubmit = (
@@ -114,7 +67,9 @@ export const AddPetForm = () => {
     { resetForm }: FormikHelpers<AddPetFormData>
   ) => {
     const formattedBirthday = birthday
-      ? birthday.toISOString().split('T')[0]
+      ? `${birthday.getFullYear()}-${(birthday.getMonth() + 1)
+          .toString()
+          .padStart(2, '0')}-${birthday.getDate().toString().padStart(2, '0')}`
       : '';
 
     const petData = {
@@ -125,9 +80,9 @@ export const AddPetForm = () => {
       title,
       sex,
     };
-
     dispatch(addPet(petData));
     resetForm();
+    navigate('/profile');
   };
 
   return (
@@ -142,19 +97,44 @@ export const AddPetForm = () => {
         onSubmit={handleSubmit}
         validationSchema={AddPetFormSchema}
       >
-        {({ handleSubmit, errors, touched, setFieldValue }) => (
+        {({ handleSubmit, setFieldValue, values }) => (
           <form onSubmit={handleSubmit}>
             <FormWrapper>
-              <GenderSelection />
-              {/* <ImageWrapper>
-                {pet.imgURL ? (
-                  <Image src={pet.imgURL} alt="Pet" />
+              <GenderSelection setFieldValue={setFieldValue} />
+              <ErrorMessage name="sex" component={ErrorText} />
+              <ImageWrapper>
+                {selectedImage ? (
+                  <Image src={selectedImage} alt="Pet" />
                 ) : (
                   <PetIcon>
                     <use href={sprite + '#icon-pet'}></use>
                   </PetIcon>
                 )}
-              </ImageWrapper> */}
+              </ImageWrapper>
+              <BlockWrapper>
+                <InputWrapper>
+                  <label>
+                    <Field
+                      type="imgURL"
+                      name="imgURL"
+                      placeholder="Enter URL"
+                      value={values.imgURL}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setFieldValue('imgURL', e.target.value);
+                      }}
+                    />
+                    <ErrorMessage name="imgURL" component={ErrorText} />
+                  </label>
+                </InputWrapper>
+                <Button
+                  onClick={e => {
+                    e.preventDefault();
+                    setSelectedImage(values.imgURL);
+                  }}
+                >
+                  Add
+                </Button>
+              </BlockWrapper>
               <InputWrapper>
                 <label>
                   <Field type="title" name="title" placeholder="Title" />
@@ -209,7 +189,6 @@ export const AddPetForm = () => {
                       options={speciesOptions}
                       placeholder="Select Species"
                       styles={customStyles}
-                      // defaultValue={speciesOptions[0]}
                     />
                     <ErrorMessage name="species" component={ErrorText} />
                   </Label>
@@ -218,11 +197,16 @@ export const AddPetForm = () => {
             </FormWrapper>
             <ButtonWrapper>
               <Button
-                // padding={'16px 186px'}
-                // width={'424px'}
-                // height={'52px'}
+                size={ButtonSize.small}
+                variant={ButtonVariant.grey}
                 type={'submit'}
-                // handleClick={handleSubmit}
+              >
+                Back
+              </Button>
+              <Button
+                size={ButtonSize.small}
+                variant={ButtonVariant.orange}
+                type={'submit'}
               >
                 Submit
               </Button>

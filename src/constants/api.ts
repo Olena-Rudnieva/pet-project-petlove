@@ -11,3 +11,4 @@ export const ADD_FAVORITES_NOTICES_URL = 'notices/favorites/add';
 export const FRIENDS_URL = 'friends';
 export const PETS_URL = '/users/current/full';
 export const ADD_PET_URL = '/users/current/pets/add';
+export const DELETE_PET_URL = '/users/current/pets/remove';

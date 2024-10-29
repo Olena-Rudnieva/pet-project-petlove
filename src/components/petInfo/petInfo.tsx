@@ -1,4 +1,4 @@
-import { Pet } from 'types';
+import { PetBlockInfo } from 'types';
 import {
   Accent,
   Avatar,
@@ -11,7 +11,7 @@ import {
 } from './petInfo.styled';
 
 interface PetInfoProps {
-  pet: Pet;
+  pet: PetBlockInfo;
 }
 
 export const PetInfo = ({ pet }: PetInfoProps) => {

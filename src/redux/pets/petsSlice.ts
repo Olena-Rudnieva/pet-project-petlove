@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addPet, fetchPets } from './petsOperations';
+import { addPet, fetchPets, removePet } from './petsOperations';
 import { Pet } from 'types';
 
 export interface PetsState {
@@ -33,6 +33,11 @@ export const petsSlice = createSlice({
       state.error = action.payload as string | null;
     });
     builder.addCase(addPet.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.error = null;
+      state.pets = action.payload.pets;
+    });
+    builder.addCase(removePet.fulfilled, (state, action) => {
       state.isLoading = false;
       state.error = null;
       state.pets = action.payload.pets;

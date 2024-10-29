@@ -44,23 +44,33 @@ export const StyledRadioWrapper = styled.div<StyledRadioWrapperProps>`
   }
 `;
 
-export const FemaleIcon = styled.svg`
+export const FemaleIcon = styled.svg<{ selected?: boolean }>`
   width: 24px;
   height: 24px;
-  stroke: ${theme.colors.white};
+  stroke: ${({ selected }) => (selected ? 'white' : '#f43f5e')};
   fill: transparent;
+
+  &:hover {
+    stroke: #892d3e;
+  }
 `;
 
-export const MaleIcon = styled.svg`
+export const MaleIcon = styled.svg<{ selected?: boolean }>`
   width: 24px;
   height: 24px;
-  stroke: ${theme.colors.blue};
+  stroke: ${({ selected }) => (selected ? 'white' : '#54ADFF')};
   fill: transparent;
+  &:hover {
+    stroke: #31577d;
+  }
 `;
 
-export const MultipleIcon = styled.svg`
+export const MultipleIcon = styled.svg<{ selected?: boolean }>`
   width: 24px;
   height: 24px;
-  stroke: ${theme.colors.accent};
+  stroke: ${({ selected }) => (selected ? 'white' : '#F6B83D')};
   fill: transparent;
+  &:hover {
+    stroke: #86714c;
+  }
 `;

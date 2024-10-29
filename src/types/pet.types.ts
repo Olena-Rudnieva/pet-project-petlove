@@ -1,9 +1,17 @@
 export interface Pet {
-  id?: string;
-  name?: string;
+  _id?: string;
+  name: string;
   imgURL?: string;
-  species?: string;
-  birthday?: string;
+  species: string;
+  birthday: string;
   title?: string;
-  sex?: string;
+  sex: string;
+}
+
+export interface PetBlockInfo {
+  id?: string;
+  name: string;
+  imgURL: string;
+  birthday: string;
+  title: string;
 }

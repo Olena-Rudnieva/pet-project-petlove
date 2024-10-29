@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 export const TitleWrapper = styled.div`
   display: flex;
   align-items: baseline;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 `;
 
 export const Title = styled.h2`
@@ -38,11 +38,14 @@ export const ImageWrapper = styled.div`
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 12px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const Image = styled.img`
   width: 100%;
   height: 100%;
+  object-fit: cover;
 `;
 
 export const PetIcon = styled.svg`
@@ -115,10 +118,18 @@ export const SuccessMessage = styled.div`
   margin-bottom: 12px;
 `;
 
+export const BlockWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+`;
 export const ButtonWrapper = styled.div`
-  display: inline-block;
-  margin-top: 16px;
-  margin-bottom: 48px;
+  display: flex;
+  gap: 8px;
+  /* margin-top: 16px;
+  margin-bottom: 48px; */
+  justify-content: center;
 `;
 
 export const CalendarIcon = styled.svg`
@@ -141,3 +152,47 @@ export const OptionsWrapper = styled.div`
   justify-content: space-between;
   gap: 12px;
 `;
+
+export const customStyles = {
+  control: (provided: any, state: any) => ({
+    ...provided,
+    width: '100%',
+    padding: '8px 8px 8px 14px',
+    fontSize: '16px',
+    color: '#000',
+    fontWeight: '500',
+    lineHeight: '20px',
+    letterSpacing: '3%',
+    border: state.isFocused ? '1px solid #F6B83D' : '1px solid #e0e0e0',
+    borderRadius: '30px',
+    boxShadow: 'none',
+    '&:hover': {
+      borderColor: '#F6B83D',
+    },
+  }),
+  placeholder: (provided: any) => ({
+    ...provided,
+    color: '#a0a0a0',
+    fontWeight: '400',
+  }),
+  menu: (provided: any) => ({
+    ...provided,
+    borderRadius: '10px',
+    marginTop: '0',
+  }),
+  option: (provided: any, state: any) => ({
+    ...provided,
+    backgroundColor: state.isSelected ? '#F6B83D' : '#fff',
+    color: state.isSelected ? '#fff' : '#000',
+    border: 'none',
+    boxShadow: 'none',
+    '&:hover': {
+      backgroundColor: '#F6B83D',
+      color: '#fff',
+    },
+  }),
+  singleValue: (provided: any) => ({
+    ...provided,
+    color: '#000',
+  }),
+};
