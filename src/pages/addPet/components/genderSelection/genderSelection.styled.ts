@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { theme } from 'constants/theme';
 
 export const SelectionWrapper = styled.div`
   display: flex;
