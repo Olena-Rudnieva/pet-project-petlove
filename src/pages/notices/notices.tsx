@@ -1,11 +1,8 @@
-import { List, Section, TitleWrapper } from './notices.styled';
+import { Section, TitleWrapper } from './notices.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { topScroll } from 'utils/topScroll';
-
-import { NoticesFilters } from 'components';
-import { NoticesItem } from './components';
-
+import { NoticesFilters, NoticesList } from './components';
 import { Container, Pagination, Title } from 'ui';
 import { fetchNotices } from '../../redux/notices/noticesOperations';
 import {
@@ -37,13 +34,7 @@ const Notices = () => {
           <Title name={'Find your favorite pet'} />
         </TitleWrapper>
         <NoticesFilters />
-        {
-          <List>
-            {notices?.map(item => (
-              <NoticesItem key={item._id} item={item} />
-            ))}
-          </List>
-        }
+        <NoticesList notices={notices} />
         <Pagination totalPages={totalPages} onPageChange={handlePageChange} />
       </Container>
     </Section>

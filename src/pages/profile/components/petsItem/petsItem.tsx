@@ -18,6 +18,7 @@ import { TbTrash } from 'react-icons/tb';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from 'redux/store';
 import { removePet } from '../../../../redux/pets';
+import { wordFromBigLetter } from 'utils';
 
 interface PetsItemProps {
   pet: Pet;
@@ -25,9 +26,6 @@ interface PetsItemProps {
 
 export const PetsItem = ({ pet }: PetsItemProps) => {
   const dispatch = useDispatch<AppDispatch>();
-  const wordFromBigLetter = (word: string) => {
-    return word.charAt(0).toUpperCase() + word.slice(1);
-  };
 
   const transformDate = (date: string) => {
     const [year, month, day] = date.split('-');
@@ -41,12 +39,8 @@ export const PetsItem = ({ pet }: PetsItemProps) => {
     { label: 'Species', value: wordFromBigLetter(pet.species) },
   ];
 
-  console.log('pet item', pet);
-
   const handleDelete = () => {
     if (pet._id) {
-      console.log(pet._id);
-
       dispatch(removePet(pet._id));
     } else {
       console.error('Pet ID is undefined.');

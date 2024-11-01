@@ -1,4 +1,3 @@
-export * from './noticesFilters';
 export * from './header';
 export * from './logo';
 export * from './hero';

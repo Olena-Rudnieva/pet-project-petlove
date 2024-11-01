@@ -1,52 +1,27 @@
 import {
   AvatarBlock,
   AvatarWrapper,
-  Form,
-  // Image,
-  // UserIconAvatar,
+  Image,
+  UserIconAvatar,
 } from './avatar.styled';
-// import sprite from 'assets/sprite.svg';
-import { ChangeEvent } from 'react';
-// import { useDispatch } from 'react-redux';
-//   import { selectUser } from '../../redux/auth/authSelectors';
-// import { setAvatarURL } from '../../redux/auth/authSlice';
+import sprite from 'assets/sprite.svg';
 
-export const Avatar = () => {
-  // const dispatch = useDispatch();
-  //   const user = useSelector(selectUser);
+interface AvatarProps {
+  avatar: string | null;
+}
 
-  const handleChangeAvatar = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-
-    if (file) {
-      // const blob = new Blob([file]);
-      // const objectURL = URL.createObjectURL(blob);
-      //   dispatch(setAvatarURL(objectURL));
-    }
-  };
+export const Avatar = ({ avatar }: AvatarProps) => {
   return (
     <AvatarBlock>
       <AvatarWrapper>
-        {/* {user.avatar ? (
-          <Image src={user.avatar} alt="User" />
+        {avatar ? (
+          <Image src={avatar} alt="User" />
         ) : (
           <UserIconAvatar>
             <use href={sprite + '#icon-user'}></use>
           </UserIconAvatar>
-        )} */}
+        )}
       </AvatarWrapper>
-      <Form>
-        <input
-          type="file"
-          name="file"
-          id="inputFile"
-          style={{ display: 'none' }}
-          onChange={handleChangeAvatar}
-        />
-        <label htmlFor="inputFile" style={{ cursor: 'pointer' }}>
-          Upload photo
-        </label>
-      </Form>
     </AvatarBlock>
   );
 };

@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addFavoriteNotices, fetchNotices } from './noticesOperations';
+import {
+  addFavoriteNotices,
+  removeFavoriteNotices,
+  fetchNotices,
+} from './noticesOperations';
 import { Notice } from 'types';
 
 interface NoticesState {
@@ -37,30 +41,24 @@ export const noticesSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload as string | null;
     });
-    builder.addCase(addFavoriteNotices.pending, state => {
-      state.isLoading = true;
-    });
     builder.addCase(addFavoriteNotices.fulfilled, (state, action) => {
+      console.log('action payload', action.payload);
+
       state.isLoading = false;
       state.error = null;
-      state.noticesFavorites = action.payload;
+      const favoriteIds = new Set(action.payload);
+      state.noticesFavorites = state.noticesData.filter(notice =>
+        favoriteIds.has(notice._id)
+      );
     });
-    builder.addCase(addFavoriteNotices.rejected, (state, action) => {
+    builder.addCase(removeFavoriteNotices.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.error = action.payload as string | null;
+      state.error = null;
+      const favoriteIds = new Set(action.payload);
+      state.noticesFavorites = state.noticesData.filter(notice =>
+        favoriteIds.has(notice._id)
+      );
     });
-    // builder.addCase(removeFavoritesNotices.pending, state => {
-    //   state.isLoading = true;
-    // });
-    // builder.addCase(removeFavoritesNotices.fulfilled, (state, action) => {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.noticesFavorites = action.payload.results;
-    // });
-    // builder.addCase(removeFavoritesNotices.rejected, (state, action) => {
-    //   state.isLoading = false;
-    //   state.error = action.payload;
-    // });
   },
 });
 

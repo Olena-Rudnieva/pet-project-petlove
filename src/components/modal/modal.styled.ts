@@ -33,7 +33,7 @@ export const ModalWrapper = styled.div<{ width: string }>`
   justify-content: center;
   border-radius: 24px;
   background-color: ${theme.colors.white};
-  padding: 50px;
+  padding: 40px;
 `;
 
 export const CloseButton = styled.button`

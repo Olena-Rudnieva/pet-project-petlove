@@ -1,4 +1,4 @@
-import { ButtonSize, ButtonVariant } from 'types';
+import { ButtonSize, ButtonVariant, Notice } from 'types';
 import {
   ButtonWrapper,
   Image,
@@ -12,22 +12,51 @@ import {
   Value,
 } from './noticesItem.styled';
 import { Button } from 'ui';
+import { FavoriteHeart } from 'components/favoriteHeart';
+import { useEffect, useState } from 'react';
+import { Modal } from 'components';
+import { ModalAttention, ModalNotice } from 'components/modal/components';
+import {
+  addFavoriteNotices,
+  removeFavoriteNotices,
+} from '../../../../redux/notices';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from 'redux/store';
 
 interface NoticesItemProps {
-  item: {
-    title: string;
-    imgURL: string;
-    comment: string;
-    name?: string;
-    birthday?: string;
-    sex?: string;
-    species?: string;
-    category?: string;
-  };
+  item: Notice;
+  isLoggedIn: boolean;
+  favoritesNotices: Notice[];
 }
 
-export const NoticesItem = ({ item }: NoticesItemProps) => {
+export const NoticesItem = ({
+  item,
+  isLoggedIn,
+  favoritesNotices,
+}: NoticesItemProps) => {
   const { title, imgURL, comment } = item;
+  const dispatch = useDispatch<AppDispatch>();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(Boolean(false));
+
+  useEffect(() => {
+    setIsFavorite(
+      Boolean(favoritesNotices?.find(favorite => favorite._id === item._id))
+    );
+  }, [favoritesNotices, item._id]);
+
+  const toggleModal = () => {
+    setIsModalOpen(prevState => !prevState);
+  };
+
+  const handleAddFavorites = (id: string) => {
+    dispatch(addFavoriteNotices(id));
+  };
+
+  const handleRemoveFavorites = (id: string) => {
+    dispatch(removeFavoriteNotices(id));
+  };
 
   const details = [
     { label: 'Name', value: item.name },
@@ -54,18 +83,36 @@ export const NoticesItem = ({ item }: NoticesItemProps) => {
       <Text>{comment}</Text>
       <ButtonWrapper>
         <Button
-          // padding={'14px 89px'}
-          //   width={'257px'}
           size={ButtonSize.small}
           variant={ButtonVariant.orange}
           type="button"
-          //   onClick={toggleModal}
+          onClick={toggleModal}
         >
           Learn more
         </Button>
 
-        {/* <FavoritesHeart item={item} /> */}
+        <FavoriteHeart
+          item={item}
+          isFavorite={isFavorite}
+          handleAddFavorites={handleAddFavorites}
+          handleRemoveFavorites={handleRemoveFavorites}
+        />
       </ButtonWrapper>
+      {isModalOpen && (
+        <Modal isOpen={isModalOpen} onClose={toggleModal} width="466px">
+          {isLoggedIn ? (
+            <ModalNotice
+              handleModalToggle={toggleModal}
+              item={item}
+              isFavorite={isFavorite}
+              handleAddFavorites={handleAddFavorites}
+              handleRemoveFavorites={handleRemoveFavorites}
+            />
+          ) : (
+            <ModalAttention handleModalToggle={toggleModal} />
+          )}
+        </Modal>
+      )}
     </NoticesItemWrapper>
   );
 };

@@ -32,26 +32,3 @@ export const Image = styled.img`
   width: 100%;
   height: 100%;
 `;
-
-export const UploadBtn = styled.button`
-  color: ${theme.colors.black};
-  font-family: 'Manrope', sans-serif;
-  font-size: ${theme.fontSizes.xxs};
-  font-weight: ${theme.fontWeight.medium};
-  line-height: 1.2857;
-  letter-spacing: -0.28px;
-  text-decoration: underline;
-  background-color: transparent;
-  border: none;
-  margin-right: 40px;
-`;
-
-export const Form = styled.form`
-  color: ${theme.colors.black};
-  font-size: ${theme.fontSizes.xxs};
-  font-weight: ${theme.fontWeight.medium};
-  line-height: 1.2857;
-  letter-spacing: -0.28px;
-  text-decoration: underline;
-  margin-right: 40px;
-`;

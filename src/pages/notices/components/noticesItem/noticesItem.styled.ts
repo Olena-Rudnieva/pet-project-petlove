@@ -46,8 +46,6 @@ export const Text = styled.p`
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
 `;
 
 export const List = styled.ul`

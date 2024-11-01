@@ -32,6 +32,7 @@ export const Avatar = styled.div`
   width: 86px;
   height: 86px;
   border-radius: 50%;
+  border: 2px solid ${theme.colors.beige};
   background-color: ${theme.colors.beige};
   margin-bottom: 12px;
   overflow: hidden;
@@ -46,6 +47,14 @@ export const UserIconAvatar = styled.svg`
 export const Image = styled.img`
   width: 100%;
   height: 100%;
+  object-fit: cover;
+`;
+
+export const BlockWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
 `;
 
 export const PhotoWrapper = styled.div`
@@ -56,24 +65,37 @@ export const PhotoWrapper = styled.div`
   margin-bottom: 4px;
 `;
 
+export const UploadWrapper = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+`;
+
 export const UploadBtn = styled.button`
   display: flex;
   gap: 8px;
   justify-content: center;
   align-items: center;
-  padding: 12px 16px;
+  padding: 18px 40px 18px 16px;
   border: none;
   border-radius: 30px;
   background-color: ${theme.colors.beige};
   font-size: ${theme.fontSizes.xxs};
   font-weight: ${theme.fontWeight.medium};
-  line-height: 1.2857;
-  letter-spacing: -0.28px;
   color: ${theme.colors.black};
   white-space: nowrap;
+  &:hover,
+  &:focus {
+    background-color: #efd49f;
+  }
 `;
 
 export const UploadIcon = styled.svg`
+  position: absolute;
+  top: 14px;
+  right: 14px;
   width: 18px;
   height: 18px;
   stroke: ${theme.colors.accent};

@@ -65,6 +65,8 @@ export const StyledButton = styled.button<{
 }>`
   padding: ${({ size }) => {
     switch (size) {
+      case ButtonSize.extrasmall:
+        return '12px 16px';
       case ButtonSize.small:
         return '14px 44px';
       case ButtonSize.medium:
@@ -80,6 +82,8 @@ export const StyledButton = styled.button<{
 
   font-size: ${({ size }) => {
     switch (size) {
+      case ButtonSize.extrasmall:
+        return theme.fontSizes.xxs;
       case ButtonSize.small:
         return theme.fontSizes.xs;
       case ButtonSize.medium:

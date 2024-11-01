@@ -85,6 +85,10 @@ export const AddPetForm = () => {
     navigate('/profile');
   };
 
+  const handleCancel = () => {
+    navigate('/profile');
+  };
+
   return (
     <Wrapper>
       <TitleWrapper>
@@ -200,6 +204,7 @@ export const AddPetForm = () => {
                 size={ButtonSize.small}
                 variant={ButtonVariant.grey}
                 type={'submit'}
+                onClick={handleCancel}
               >
                 Back
               </Button>

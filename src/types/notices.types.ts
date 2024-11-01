@@ -3,9 +3,9 @@ export interface Notice {
   title: string;
   imgURL: string;
   comment: string;
-  name?: string;
-  birthday?: string;
-  sex?: string;
-  species?: string;
+  name: string;
+  birthday: string;
+  sex: string;
+  species: string;
   category?: string;
 }

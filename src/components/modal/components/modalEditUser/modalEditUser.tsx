@@ -1,16 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import sprite from 'assets/sprite.svg';
 import {
   Avatar,
   AvatarWrapper,
+  BlockWrapper,
   ErrorText,
   FormWrapper,
   Image,
   InputWrapper,
-  // PhotoWrapper,
   Title,
-  // UploadBtn,
-  // UploadIcon,
+  UploadBtn,
+  UploadIcon,
+  UploadWrapper,
   UserIconAvatar,
   Wrapper,
 } from './modalEditUser.styled';
@@ -19,8 +20,9 @@ import { Formik, Field, ErrorMessage, FormikHelpers } from 'formik';
 import { Button } from 'ui';
 import { ButtonSize, ButtonVariant } from 'types';
 import { ModalEditUserSchema } from './modalEditUserShema';
-import { selectUser, uploadUser } from '../../../../redux/auth';
+import { uploadUser } from '../../../../redux/auth';
 import { AppDispatch } from 'redux/store';
+import { useState } from 'react';
 
 interface EditData {
   name: string;
@@ -33,36 +35,26 @@ const initialValues: EditData = {
   name: '',
   email: '',
   phone: '',
-  avatar: 'https://test.png',
+  avatar: '',
 };
+
+//const avatar = 'https://img.freepik.com/free-vector/young-woman-long-hair-portrait_24877-83350.jpg'
 
 interface ModalEditUserProps {
   handleModalToggle: () => void;
 }
 
 export const ModalEditUser = ({ handleModalToggle }: ModalEditUserProps) => {
+  const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
+
   const dispatch = useDispatch<AppDispatch>();
-  const user = useSelector(selectUser);
-
-  // const handleChangeAvatar = e => {
-  //   const file = e.target.files[0];
-  //   console.log(file);
-  //   if (file) {
-  //     const blob = new Blob([file]);
-  //     const objectURL = URL.createObjectURL(blob);
-  //     dispatch(setAvatarURL(objectURL));
-  //     document.getElementById('fileLabel').innerText = file.name;
-  //   }
-  // };
-
-  // const handleFileLabelClick = () => {
-  //   document.getElementById('photoInput').click();
-  // };
 
   const handleSubmit = (
     { name, email, phone, avatar }: EditData,
     { resetForm }: FormikHelpers<EditData>
   ) => {
+    console.log('info', name, email, phone, avatar);
+
     dispatch(uploadUser({ name, email, phone, avatar }));
     resetForm();
     handleModalToggle();
@@ -73,8 +65,8 @@ export const ModalEditUser = ({ handleModalToggle }: ModalEditUserProps) => {
       <Title>Edit information</Title>
       <AvatarWrapper>
         <Avatar>
-          {user.avatar ? (
-            <Image src={user.avatar} alt="User" />
+          {selectedPhoto ? (
+            <Image src={selectedPhoto} alt="User" />
           ) : (
             <UserIconAvatar>
               <use href={sprite + '#icon-user'}></use>
@@ -87,9 +79,38 @@ export const ModalEditUser = ({ handleModalToggle }: ModalEditUserProps) => {
         onSubmit={handleSubmit}
         validationSchema={ModalEditUserSchema}
       >
-        {({ handleSubmit, errors, touched }) => (
+        {({ handleSubmit, setFieldValue, values }) => (
           <form onSubmit={handleSubmit}>
             <FormWrapper>
+              <BlockWrapper>
+                <InputWrapper>
+                  <label>
+                    <Field
+                      type="avatar"
+                      name="avatar"
+                      placeholder="Enter URL"
+                      value={values.avatar}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setFieldValue('avatar', e.target.value);
+                      }}
+                    />
+                    <ErrorMessage name="avatar" component={ErrorText} />
+                  </label>
+                </InputWrapper>
+                <UploadWrapper>
+                  <UploadBtn
+                    onClick={e => {
+                      e.preventDefault();
+                      setSelectedPhoto(values.avatar);
+                    }}
+                  >
+                    Upload photo
+                  </UploadBtn>
+                  <UploadIcon>
+                    <use href={sprite + '#icon-upload'}></use>
+                  </UploadIcon>
+                </UploadWrapper>
+              </BlockWrapper>
               <InputWrapper>
                 <label>
                   <Field type="text" name="name" placeholder="Name" />

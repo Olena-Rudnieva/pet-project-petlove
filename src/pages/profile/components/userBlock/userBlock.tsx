@@ -24,8 +24,9 @@ export const UserBlock = () => {
   };
 
   const user = useSelector(selectUser);
+  const { name, email, phone, avatar } = user;
 
-  const { name, email, phone } = user;
+  console.log('user', user);
 
   return (
     <Wrapper>
@@ -36,7 +37,7 @@ export const UserBlock = () => {
             <use href={sprite + '#icon-user'}></use>
           </UserIcon>
         </StyledUser>
-        <Avatar />
+        <Avatar avatar={avatar} />
         <EditBtn onClick={toggleModal}>
           <EditIcon>
             <use href={sprite + '#icon-edit'}></use>

@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 90px;
+  padding: 20px;
   width: 100%;
 `;
 
@@ -26,12 +26,22 @@ export const Image = styled.img`
 `;
 
 export const Title = styled.h2`
-  color: ${theme.colors.black};
+  color: ${theme.colors.accent};
   font-size: ${theme.fontSizes.l};
   font-weight: ${theme.fontWeight.bold};
   line-height: 1.1667;
   letter-spacing: -0.72px;
+  margin-bottom: 20px;
+`;
+
+export const Text = styled.p`
+  color: ${theme.colors.black};
+  font-size: ${theme.fontSizes.xxs};
+  font-weight: ${theme.fontWeight.medium};
+  line-height: 1.2857;
+  letter-spacing: -0.72px;
   margin-bottom: 28px;
+  text-align: center;
 `;
 
 export const ButtonWrapper = styled.div`

@@ -4,6 +4,7 @@ import {
   ADD_FAVORITES_NOTICES_URL,
   BASE_URL,
   NOTICES_URL,
+  REMOVE_FAVORITES_NOTICES_URL,
 } from 'constants/api';
 
 axios.defaults.baseURL = `${BASE_URL}`;
@@ -22,7 +23,7 @@ export const fetchNotices = createAsyncThunk(
 
 export const addFavoriteNotices = createAsyncThunk(
   'notices/addFavoritesNotices',
-  async (id, thunkAPI) => {
+  async (id: string, thunkAPI) => {
     try {
       const response = await axios.post(`${ADD_FAVORITES_NOTICES_URL}/${id}`);
       return response.data;
@@ -34,9 +35,11 @@ export const addFavoriteNotices = createAsyncThunk(
 
 export const removeFavoriteNotices = createAsyncThunk(
   'notices/removeFavoritesNotices',
-  async (id, thunkAPI) => {
+  async (id: string, thunkAPI) => {
     try {
-      const response = await axios.delete(`${ADD_FAVORITES_NOTICES_URL}${id}`);
+      const response = await axios.delete(
+        `${REMOVE_FAVORITES_NOTICES_URL}/${id}`
+      );
       return response.data;
     } catch (e: any) {
       return thunkAPI.rejectWithValue(e.message);
