@@ -10,6 +10,7 @@ export const MyNoticesWrapper = styled.div`
 export const ButtonWrapper = styled.div`
   display: flex;
   gap: 8px;
+  margin-bottom: 32px;
   /* justify-content: center;
   align-items: center; */
 `;
@@ -30,4 +31,10 @@ export const Text = styled.p`
 
 export const Accent = styled.span`
   color: ${theme.colors.accent};
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
 `;

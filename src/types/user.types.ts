@@ -4,6 +4,6 @@ export interface User {
   email: string | null;
   avatar: string | null;
   phone: string | null;
-  noticesFavorites?: any[];
+  noticesFavorites?: string[];
   noticesViewed?: any[];
 }

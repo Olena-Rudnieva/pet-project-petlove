@@ -96,14 +96,20 @@ export const ModalNotice = ({
             )}
           </Heart>
         </FavoriteBtn>
-        <Button
-          type={'button'}
-          size={ButtonSize.small}
-          variant={ButtonVariant.beige}
-          onClick={handleContact}
+        <a
+          href="mailto:contact@example.com?subject=Inquiry%20about%20pet%20notice"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Contact
-        </Button>
+          <Button
+            type={'button'}
+            size={ButtonSize.small}
+            variant={ButtonVariant.beige}
+            onClick={handleContact}
+          >
+            Contact
+          </Button>
+        </a>
       </ButtonWrapper>
     </Wrapper>
   );

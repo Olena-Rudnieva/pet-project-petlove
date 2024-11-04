@@ -42,26 +42,12 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(register.fulfilled, (state, action) => {
-        // state.user.name = action.payload.name;
-        // state.user.email = action.payload.email;
-        // state.user.avatar = action.payload.avatar || null;
-        // state.user.phone = action.payload.phone || null;
-        // state.user.noticesFavorites = action.payload.noticesFavorites || [];
-        // state.user.noticesViewed = action.payload.noticesViewed || [];
         state.user = action.payload;
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
       .addCase(logIn.fulfilled, (state, action) => {
-        console.log('action payload in login', action.payload);
-
-        state.user.name = action.payload.name;
-        state.user.email = action.payload.email;
-        state.user.avatar = action.payload.avatar || null;
-        state.user.phone = action.payload.phone || null;
-        state.user.noticesFavorites = action.payload.noticesFavorites || [];
-        state.user.noticesViewed = action.payload.noticesViewed || [];
-        // state.user = action.payload;
+        state.user = action.payload;
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
@@ -73,21 +59,11 @@ const authSlice = createSlice({
       //   state.isLoggedIn = true;
       // })
       .addCase(fetchCurrentUserFull.fulfilled, (state, action) => {
-        // state.user.name = action.payload.name;
-        // state.user.email = action.payload.email;
-        // state.user.avatar = action.payload.avatar;
-        // state.user.phone = action.payload.phone;
-        // state.user.noticesFavorites = action.payload.noticesFavorites;
-        // state.user.noticesViewed = action.payload.noticesViewed;
         state.user = action.payload;
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
       .addCase(uploadUser.fulfilled, (state, action) => {
-        // state.user.name = action.payload.name;
-        // state.user.email = action.payload.email;
-        // state.user.phone = action.payload.phone;
-        // state.user.avatar = action.payload.avatar;
         state.user = action.payload;
       })
       .addCase(logOut.fulfilled, state => {

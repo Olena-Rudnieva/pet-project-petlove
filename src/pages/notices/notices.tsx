@@ -16,6 +16,7 @@ const Notices = () => {
   const [selectedPage, setSelectedPage] = useState<number>(1);
   const dispatch = useDispatch<AppDispatch>();
   const notices = useSelector(selectNotices) as Notice[];
+
   const totalPages = useSelector(selectTotalPagesNotices) ?? 1;
 
   const handlePageChange = (e: { selected: number }) => {

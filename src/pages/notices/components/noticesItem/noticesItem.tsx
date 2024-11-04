@@ -13,49 +13,52 @@ import {
 } from './noticesItem.styled';
 import { Button } from 'ui';
 import { FavoriteHeart } from 'components/favoriteHeart';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Modal } from 'components';
 import { ModalAttention, ModalNotice } from 'components/modal/components';
+
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from 'redux/store';
+
 import {
   addFavoriteNotices,
   removeFavoriteNotices,
 } from '../../../../redux/notices';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from 'redux/store';
 
 interface NoticesItemProps {
   item: Notice;
   isLoggedIn: boolean;
-  favoritesNotices: Notice[];
+  isFavorite: boolean;
 }
 
 export const NoticesItem = ({
   item,
   isLoggedIn,
-  favoritesNotices,
+  isFavorite,
 }: NoticesItemProps) => {
   const { title, imgURL, comment } = item;
   const dispatch = useDispatch<AppDispatch>();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(Boolean(false));
-
-  useEffect(() => {
-    setIsFavorite(
-      Boolean(favoritesNotices?.find(favorite => favorite._id === item._id))
-    );
-  }, [favoritesNotices, item._id]);
 
   const toggleModal = () => {
     setIsModalOpen(prevState => !prevState);
   };
 
   const handleAddFavorites = (id: string) => {
-    dispatch(addFavoriteNotices(id));
+    if (isLoggedIn) {
+      dispatch(addFavoriteNotices(id));
+    } else {
+      toggleModal();
+    }
   };
 
   const handleRemoveFavorites = (id: string) => {
-    dispatch(removeFavoriteNotices(id));
+    if (isLoggedIn) {
+      dispatch(removeFavoriteNotices(id));
+    } else {
+      toggleModal();
+    }
   };
 
   const details = [

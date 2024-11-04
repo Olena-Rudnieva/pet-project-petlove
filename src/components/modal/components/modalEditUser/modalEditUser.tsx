@@ -38,8 +38,6 @@ const initialValues: EditData = {
   avatar: '',
 };
 
-//const avatar = 'https://img.freepik.com/free-vector/young-woman-long-hair-portrait_24877-83350.jpg'
-
 interface ModalEditUserProps {
   handleModalToggle: () => void;
 }

@@ -62,8 +62,8 @@ export const PetsItem = ({ pet }: PetsItemProps) => {
         <Title>{pet.name}</Title>
         <List>
           {details.map((detail, index) => (
-            <div>
-              <ListItem key={index}>
+            <div key={index}>
+              <ListItem>
                 <Label>{detail.label}</Label>
                 <Value> {detail.value}</Value>
               </ListItem>

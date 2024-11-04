@@ -5,6 +5,7 @@ import {
   fetchNotices,
 } from './noticesOperations';
 import { Notice } from 'types';
+// import { store } from '../store';
 
 interface NoticesState {
   noticesData: Notice[];
