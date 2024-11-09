@@ -12,8 +12,7 @@ export const FormWrapper = styled.form`
 
 export const FormField = styled.input`
   width: 100%;
-  height: 48px;
-  padding: 14px;
+  padding: 16px;
   border-radius: 30px;
   border: 1px solid ${theme.colors.grey};
   font-size: ${theme.fontSizes.xs};
@@ -40,7 +39,7 @@ export const Loupe = styled.button`
   border: none;
   position: absolute;
   background-color: ${theme.colors.white};
-  bottom: 10px;
+  bottom: 14px;
   right: 14px;
   cursor: pointer;
   &:hover,
@@ -53,7 +52,7 @@ export const Close = styled.button`
   border: none;
   position: absolute;
   background-color: ${theme.colors.white};
-  bottom: 8px;
+  bottom: 12px;
   right: 40px;
   cursor: pointer;
   &:hover,

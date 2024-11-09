@@ -3,14 +3,19 @@ import {
   addFavoriteNotices,
   removeFavoriteNotices,
   fetchNotices,
+  fetchCategories,
+  fetchGender,
+  fetchSpecies,
 } from './noticesOperations';
 import { Notice } from 'types';
-// import { store } from '../store';
 
 interface NoticesState {
   noticesData: Notice[];
   noticesFavorites: Notice[];
   totalPages: number | null;
+  categories: string[];
+  genders: string[];
+  species: string[];
   isLoading: boolean;
   error: string | null;
 }
@@ -19,6 +24,9 @@ const initialState: NoticesState = {
   noticesData: [],
   noticesFavorites: [],
   totalPages: null,
+  categories: [],
+  genders: [],
+  species: [],
   isLoading: false,
   error: null,
 };
@@ -43,8 +51,6 @@ export const noticesSlice = createSlice({
       state.error = action.payload as string | null;
     });
     builder.addCase(addFavoriteNotices.fulfilled, (state, action) => {
-      console.log('action payload', action.payload);
-
       state.isLoading = false;
       state.error = null;
       const favoriteIds = new Set(action.payload);
@@ -59,6 +65,21 @@ export const noticesSlice = createSlice({
       state.noticesFavorites = state.noticesData.filter(notice =>
         favoriteIds.has(notice._id)
       );
+    });
+    builder.addCase(fetchCategories.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.error = null;
+      state.categories = action.payload;
+    });
+    builder.addCase(fetchGender.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.error = null;
+      state.genders = action.payload;
+    });
+    builder.addCase(fetchSpecies.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.error = null;
+      state.species = action.payload;
     });
   },
 });

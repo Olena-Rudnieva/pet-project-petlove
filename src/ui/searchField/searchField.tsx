@@ -12,12 +12,16 @@ interface SearchFieldProps {
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
   isSearching: boolean;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleClear: () => void;
+  value: string;
 }
 
 export const SearchField = ({
   handleSubmit,
   isSearching,
   handleChange,
+  handleClear,
+  value,
 }: SearchFieldProps) => {
   return (
     <FormWrapper onSubmit={handleSubmit}>
@@ -26,6 +30,7 @@ export const SearchField = ({
         type="text"
         onChange={handleChange}
         placeholder="Search"
+        value={value}
       />
 
       <Loupe type="submit">
@@ -34,8 +39,8 @@ export const SearchField = ({
         </Icon>
       </Loupe>
 
-      {!isSearching && (
-        <Close type="submit" name="clear">
+      {isSearching && (
+        <Close type="button" onClick={handleClear} name="clear">
           <CloseIcon />
         </Close>
       )}

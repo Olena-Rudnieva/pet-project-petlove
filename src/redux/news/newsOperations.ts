@@ -6,12 +6,33 @@ axios.defaults.baseURL = `${BASE_URL}`;
 
 export const fetchNews = createAsyncThunk(
   'news/fetchNews',
-  async (pageNumber: number, thunkAPI) => {
+  async (
+    { pageNumber, keyword }: { pageNumber: number; keyword?: string },
+    thunkAPI
+  ) => {
     try {
-      const response = await axios.get(`${NEWS_URL}?page=${pageNumber}`);
+      const response = await axios.get(`${NEWS_URL}`, {
+        params: {
+          page: pageNumber,
+          keyword,
+          limit: 6,
+        },
+      });
       return response.data;
     } catch (e: any) {
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
+
+// export const fetchNews = createAsyncThunk(
+//   'news/fetchNews',
+//   async (pageNumber: number, thunkAPI) => {
+//     try {
+//       const response = await axios.get(`${NEWS_URL}?page=${pageNumber}`);
+//       return response.data;
+//     } catch (e: any) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );

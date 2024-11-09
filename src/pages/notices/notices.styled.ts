@@ -18,3 +18,10 @@ export const List = styled.ul`
   gap: 40px 32px;
   margin-bottom: 60px;
 `;
+
+export const Wrapper = styled.div`
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: flex-start;
+`;

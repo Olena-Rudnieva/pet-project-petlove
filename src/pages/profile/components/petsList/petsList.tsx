@@ -11,7 +11,6 @@ import { fetchPets } from '../../../../redux/pets';
 export const PetsList = () => {
   const dispatch = useDispatch<AppDispatch>();
   const pets: Pet[] = useSelector(selectPets);
-  console.log('pets', pets);
 
   useEffect(() => {
     dispatch(fetchPets());

@@ -98,8 +98,6 @@ export const uploadUser = createAsyncThunk(
   async (userData: EditUserCredentials, thunkAPI) => {
     try {
       const res = await axios.patch(CURRENT_USER_EDIT_URL, userData);
-      console.log('res data', res.data);
-
       return res.data;
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);

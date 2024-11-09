@@ -20,6 +20,7 @@ interface PageChangeEvent {
 const News = () => {
   const [selectedPage, setSelectedPage] = useState<number>(1);
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [keyword, setKeyword] = useState<string>('');
   const dispatch = useDispatch<AppDispatch>();
 
   const news = useSelector(selectNews) as NewsType[];
@@ -37,13 +38,19 @@ const News = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('Search query submitted:', searchQuery);
-    // Example: dispatch(fetchNews(selectedPage, searchQuery));
+    setKeyword(searchQuery);
+    dispatch(fetchNews({ pageNumber: selectedPage, keyword: searchQuery }));
+  };
+
+  const handleClear = () => {
+    setSearchQuery('');
+    setKeyword('');
+    dispatch(fetchNews({ pageNumber: selectedPage, keyword: '' }));
   };
 
   useEffect(() => {
-    dispatch(fetchNews(selectedPage));
-  }, [dispatch, selectedPage]);
+    dispatch(fetchNews({ pageNumber: selectedPage, keyword: keyword }));
+  }, [dispatch, selectedPage, keyword]);
 
   return (
     <Section>
@@ -54,6 +61,8 @@ const News = () => {
             handleSubmit={handleSubmit}
             isSearching={searchQuery.length > 0}
             handleChange={handleChange}
+            handleClear={handleClear}
+            value={searchQuery}
           />
         </Wrapper>
 

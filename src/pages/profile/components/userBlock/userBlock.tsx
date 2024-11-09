@@ -26,8 +26,6 @@ export const UserBlock = () => {
   const user = useSelector(selectUser);
   const { name, email, phone, avatar } = user;
 
-  console.log('user', user);
-
   return (
     <Wrapper>
       <UpperWrapper>

@@ -127,8 +127,6 @@ export const BlockWrapper = styled.div`
 export const ButtonWrapper = styled.div`
   display: flex;
   gap: 8px;
-  /* margin-top: 16px;
-  margin-bottom: 48px; */
   justify-content: center;
 `;
 

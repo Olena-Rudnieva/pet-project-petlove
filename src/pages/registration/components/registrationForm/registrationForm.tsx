@@ -59,8 +59,6 @@ export const RegistrationForm = () => {
     { name, email, password }: Omit<RegistrationData, 'confirmPassword'>,
     { resetForm }: FormikHelpers<RegistrationData>
   ) => {
-    console.log(name, email, password);
-
     dispatch(register({ name, email, password }));
     resetForm();
   };
@@ -140,16 +138,7 @@ export const RegistrationForm = () => {
               </InputWrapper>
             </FormWrapper>
             <ButtonWrapper>
-              <Button
-                // padding={'16px 186px'}
-                // width={'424px'}
-                // height={'52px'}
-                // text={'REGISTRATION'}
-                type={'submit'}
-                // handleClick={handleSubmit}
-              >
-                REGISTRATION
-              </Button>
+              <Button type={'submit'}>REGISTRATION</Button>
             </ButtonWrapper>
           </form>
         )}

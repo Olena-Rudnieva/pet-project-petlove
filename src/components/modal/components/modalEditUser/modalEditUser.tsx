@@ -51,8 +51,6 @@ export const ModalEditUser = ({ handleModalToggle }: ModalEditUserProps) => {
     { name, email, phone, avatar }: EditData,
     { resetForm }: FormikHelpers<EditData>
   ) => {
-    console.log('info', name, email, phone, avatar);
-
     dispatch(uploadUser({ name, email, phone, avatar }));
     resetForm();
     handleModalToggle();
