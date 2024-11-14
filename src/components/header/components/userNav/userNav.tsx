@@ -8,7 +8,17 @@ import { Modal } from 'components/modal';
 import { Button } from 'ui';
 import { ModalApproveAction } from 'components/modal/components';
 
-export const UserNav = () => {
+interface UserNavProps {
+  isMobileMenuOpen?: boolean;
+  onClick?: () => void;
+  isMobile?: boolean;
+}
+
+export const UserNav = ({
+  isMobileMenuOpen = false,
+  isMobile,
+  onClick,
+}: UserNavProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -16,7 +26,7 @@ export const UserNav = () => {
   };
 
   return (
-    <UserNavWrapper>
+    <UserNavWrapper isMobileMenuOpen={isMobileMenuOpen}>
       <Button
         type="button"
         size={ButtonSize.small}
@@ -25,10 +35,13 @@ export const UserNav = () => {
       >
         LOG OUT
       </Button>
-      <UserBar />
+      {!isMobile && <UserBar />}
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={toggleModal} width="448px">
-          <ModalApproveAction handleModalToggle={toggleModal} />
+          <ModalApproveAction
+            handleModalToggle={toggleModal}
+            onClick={onClick}
+          />
         </Modal>
       )}
     </UserNavWrapper>

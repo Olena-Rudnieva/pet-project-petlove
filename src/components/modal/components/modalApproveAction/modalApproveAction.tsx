@@ -14,7 +14,15 @@ import { logOut } from '../../../../redux/auth';
 import { ButtonSize, ButtonVariant } from 'types';
 import { AppDispatch } from 'redux/store';
 
-export const ModalApproveAction = ({ handleModalToggle }: any) => {
+interface ModalApproveActionProps {
+  handleModalToggle: () => void;
+  onClick?: () => void;
+}
+
+export const ModalApproveAction = ({
+  handleModalToggle,
+  onClick,
+}: ModalApproveActionProps) => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
@@ -26,6 +34,7 @@ export const ModalApproveAction = ({ handleModalToggle }: any) => {
   const handleClick = () => {
     handleLogOut();
     handleModalToggle();
+    onClick && onClick();
   };
 
   const handleCancel = () => {

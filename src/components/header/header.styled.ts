@@ -9,6 +9,13 @@ export const Navigation = styled.nav`
   align-items: center;
   padding-top: 32px;
   padding-bottom: 32px;
+  width: 100%;
 `;
 
 export const Link = styled(NavLink)``;
+
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+`;

@@ -1,12 +1,21 @@
-
 import { theme } from 'constants/theme';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+interface UserNavWrapperProps {
+  isMobileMenuOpen: boolean;
+}
 
-export const UserNavWrapper = styled.div`
-  display: flex;
+export const UserNavWrapper = styled.div<UserNavWrapperProps>`
+  /* display: none; */
+  display: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 'flex' : 'none')};
+  flex-direction: ${({ isMobileMenuOpen }) =>
+    isMobileMenuOpen ? 'column' : 'row'};
   gap: 8px;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
 `;
 
 export const Link = styled(NavLink)`

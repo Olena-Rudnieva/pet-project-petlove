@@ -1,18 +1,26 @@
-
 import { theme } from 'constants/theme';
 import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
+interface AuthNavWrapperProps {
+  isMobileMenuOpen: boolean;
+}
+
+export const AuthNavWrapper = styled.div<AuthNavWrapperProps>`
+  display: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 'flex' : 'none')};
+  flex-direction: ${({ isMobileMenuOpen }) =>
+    isMobileMenuOpen ? 'column' : 'row'};
+  /* display: none; */
+  gap: 8px;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+`;
 
 interface LinkProps {
-    specialbackground?: string; 
-  }
-
-export const AuthNavWrapper = styled.div`
-  display: flex;
-  gap: 8px;
-  /* margin-right: 32px; */
-`;
+  specialbackground?: string;
+}
 
 export const Link = styled(NavLink)<LinkProps>`
   padding: 15px 35px;
@@ -21,6 +29,7 @@ export const Link = styled(NavLink)<LinkProps>`
   font-size: ${theme.fontSizes.xs};
   line-height: 1.25;
   letter-spacing: -0.48px;
+  text-align: center;
   background-color: ${theme.colors.accent};
   color: ${theme.colors.white};
   border-radius: 30px;

@@ -1,10 +1,20 @@
 import { AuthNavWrapper, Link } from './authNav.styled';
 
-export const AuthNav = () => {
+interface AuthNavProps {
+  isMobileMenuOpen?: boolean;
+  onClick?: () => void;
+}
+
+export const AuthNav = ({
+  isMobileMenuOpen = false,
+  onClick,
+}: AuthNavProps) => {
   return (
-    <AuthNavWrapper>
-      <Link to="/login">Log in</Link>
-      <Link to="/register" specialbackground="true">
+    <AuthNavWrapper isMobileMenuOpen={isMobileMenuOpen}>
+      <Link to="/login" onClick={onClick}>
+        Log in
+      </Link>
+      <Link to="/register" specialbackground="true" onClick={onClick}>
         Registration
       </Link>
     </AuthNavWrapper>
