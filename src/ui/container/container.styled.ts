@@ -1,7 +1,4 @@
-
-import { theme } from 'constants/theme';
 import styled from 'styled-components';
-
 
 export const Wrapper = styled.div`
   padding-left: 20px;
@@ -10,15 +7,15 @@ export const Wrapper = styled.div`
   width: 100%;
   max-width: 480px;
 
-  ${theme.mq.tablet} {
+  @media (min-width: 768px) {
     padding-right: 32px;
     padding-left: 32px;
-    width: ${theme.breakpoints[1]};
+    width: 768px;
     max-width: 100%;
   }
 
-  ${theme.mq.desktop} {
-    width: ${theme.breakpoints[2]};
+  @media (min-width: 1280px) {
+    width: 1280px;
     max-width: 100%;
   }
 `;

@@ -1,6 +1,7 @@
-// import { formattedDate } from 'utils';
+import { formattedDateForNews } from 'utils';
 import {
   BottomList,
+  Date,
   Image,
   ImageWrapper,
   Link,
@@ -10,19 +11,17 @@ import {
 } from './newsItem.styled';
 
 export const NewsItem = ({ item }: any) => {
-  const { title, text, imgUrl, url } = item;
+  const { title, text, imgUrl, url, date } = item;
 
   return (
     <NewsItemWrapper>
-      <div>
-        <ImageWrapper>
-          <Image src={imgUrl} alt={title} />
-        </ImageWrapper>
-        <Title>{title}</Title>
-        <Text>{text}</Text>
-      </div>
+      <ImageWrapper>
+        <Image src={imgUrl} alt={title} />
+      </ImageWrapper>
+      <Title>{title}</Title>
+      <Text>{text}</Text>
       <BottomList>
-        {/* <Date>{formattedDate(date)}</Date> */}
+        <Date>{formattedDateForNews(date)}</Date>
         <Link to={url} target="_blank" rel="noopener noreferrer">
           Read more
         </Link>

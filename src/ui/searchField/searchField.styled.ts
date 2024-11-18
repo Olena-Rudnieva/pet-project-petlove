@@ -4,28 +4,30 @@ import styled from 'styled-components';
 
 export const FormWrapper = styled.form`
   position: relative;
+  width: 100%;
 
-  ${theme.mq.tablet} {
+  @media (min-width: 768px) {
     width: 230px;
   }
 `;
 
 export const FormField = styled.input`
   width: 100%;
-  padding: 16px;
+  padding: 12px;
   border-radius: 30px;
   border: 1px solid ${theme.colors.grey};
-  font-size: ${theme.fontSizes.xs};
+  font-size: ${theme.fontSizes.xxs};
   font-weight: ${theme.fontWeight.medium};
-  line-height: 1.25;
-  letter-spacing: -0.48px;
+  line-height: 18px;
+  letter-spacing: -0.42px;
   color: ${theme.colors.black};
 
-  /* ${theme.mq.tablet} {
-    height: 44px;
-    font-size: ${theme.fontSizes.m};
-    padding: 8px 36px 9px 20px;
-  } */
+  @media (min-width: 768px) {
+    padding: 16px;
+    font-size: ${theme.fontSizes.xs};
+    line-height: 20px;
+    letter-spacing: -0.48px;
+  }
 `;
 
 export const Icon = styled.svg`
@@ -39,12 +41,16 @@ export const Loupe = styled.button`
   border: none;
   position: absolute;
   background-color: ${theme.colors.white};
-  bottom: 14px;
+  bottom: 8px;
   right: 14px;
   cursor: pointer;
   &:hover,
   &:focus {
     scale: 1.05;
+  }
+
+  @media (min-width: 768px) {
+    bottom: 12px;
   }
 `;
 
@@ -52,7 +58,7 @@ export const Close = styled.button`
   border: none;
   position: absolute;
   background-color: ${theme.colors.white};
-  bottom: 12px;
+  bottom: 8px;
   right: 40px;
   cursor: pointer;
   &:hover,

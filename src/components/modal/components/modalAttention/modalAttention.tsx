@@ -6,30 +6,21 @@ import {
   Title,
   Wrapper,
 } from './modalAttention.styled';
-import { useDispatch } from 'react-redux';
 import loginAvatar from 'assets/images/loginAvatar.png';
 import { useNavigate } from 'react-router-dom';
-
 import { Button } from 'ui';
-import { logOut } from '../../../../redux/auth';
 import { ButtonSize, ButtonVariant } from 'types';
-import { AppDispatch } from 'redux/store';
 
 export const ModalAttention = ({ handleModalToggle }: any) => {
-  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
-  const handleLogOut = () => {
-    dispatch(logOut());
-    navigate('/');
-  };
-
-  const handleClick = () => {
-    handleLogOut();
+  const handleLogin = () => {
+    navigate('/login');
     handleModalToggle();
   };
 
-  const handleCancel = () => {
+  const handleRegister = () => {
+    navigate('/register');
     handleModalToggle();
   };
 
@@ -50,7 +41,7 @@ export const ModalAttention = ({ handleModalToggle }: any) => {
           type={'button'}
           size={ButtonSize.small}
           variant={ButtonVariant.orange}
-          onClick={handleClick}
+          onClick={handleLogin}
         >
           Log In
         </Button>
@@ -58,7 +49,7 @@ export const ModalAttention = ({ handleModalToggle }: any) => {
           type={'button'}
           size={ButtonSize.small}
           variant={ButtonVariant.beige}
-          onClick={handleCancel}
+          onClick={handleRegister}
         >
           Registration
         </Button>

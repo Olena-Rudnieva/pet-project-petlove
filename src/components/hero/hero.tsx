@@ -1,4 +1,6 @@
-import heroImg from 'assets/images/heroImg.jpg';
+import heroImgDesktop from 'assets/images/heroImgDesktop.jpg';
+import heroImgTablet from 'assets/images/heroImgTablet.jpg';
+import heroImgMobile from 'assets/images/heroImgMobile.jpg';
 import {
   Accent,
   HeroWrapper,
@@ -7,8 +9,15 @@ import {
   TextWrapper,
   Title,
 } from './hero.styled';
+import { useMediaQuery } from 'react-responsive';
 
 export const Hero = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+  const isTablet = useMediaQuery({
+    query: '(min-width: 768px) and (max-width: 1279px)',
+  });
+  const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' });
+
   return (
     <HeroWrapper>
       <TextWrapper>
@@ -21,7 +30,9 @@ export const Hero = () => {
         </Text>
       </TextWrapper>
 
-      <Image src={heroImg} alt="Girl with a dog" />
+      {isMobile && <Image src={heroImgMobile} alt="Girl with a dog" />}
+      {isTablet && <Image src={heroImgTablet} alt="Girl with a dog" />}
+      {isDesktop && <Image src={heroImgDesktop} alt="Girl with a dog" />}
     </HeroWrapper>
   );
 };

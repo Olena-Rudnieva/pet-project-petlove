@@ -11,6 +11,7 @@ import { AppDispatch } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { refreshUser, selectIsRefreshing } from '../redux/auth';
 import { PrivateRoute } from './privateRoute';
+import { RestrictedRoute } from './restrictedRoute';
 
 const Home = lazy(() => import('pages/home'));
 const News = lazy(() => import('pages/news/news'));
@@ -25,7 +26,6 @@ const AddPet = lazy(() => import('pages/addPet/addPet'));
 export const App = () => {
   const dispatch = useDispatch<AppDispatch>();
   const isRefreshing = useSelector(selectIsRefreshing);
-  // const isRefreshing = false;
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -41,13 +41,14 @@ export const App = () => {
           <Route path="/news" element={<News />} />
           <Route path="/notices" element={<Notices />} />
           <Route path="/friends" element={<Friends />} />
-          <Route path="/register" element={<Registration />} />
-          <Route path="/login" element={<Login />} />
-          {/* <Route path="/profile" element={<Profile />} /> */}
-          <Route path="/" element={<PrivateRoute />}>
-            <Route path="/profile" element={<Profile />} />
+          <Route element={<RestrictedRoute />}>
+            <Route path="/register" element={<Registration />} />
+            <Route path="/login" element={<Login />} />
           </Route>
-          <Route path="/add-pet" element={<AddPet />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/add-pet" element={<AddPet />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

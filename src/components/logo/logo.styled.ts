@@ -26,7 +26,7 @@ export const LogoText = styled.span`
   letter-spacing: -1.12px;
 
   @media (min-width: 768px) {
-    font-size: 28px;
-    font-size: ${theme.fontSizes.m};
+    font-size: ${theme.fontSizes.xl};
+    line-height: 28px;
   }
 `;

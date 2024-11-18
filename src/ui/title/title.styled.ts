@@ -9,7 +9,7 @@ export const StyledTitle = styled.h1`
   color: ${theme.colors.black};
   text-align: start;
 
-  ${theme.mq.tablet} {
+  @media (min-width: 768px) {
     font-size: ${theme.fontSizes.xxxxl};
     letter-spacing: -1.62px;
   }

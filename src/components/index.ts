@@ -7,3 +7,4 @@ export * from './modal';
 export * from './newsItem';
 export * from './petInfo';
 export * from './privateRoute';
+export * from './restrictedRoute';
