@@ -16,7 +16,6 @@ import {
   Wrapper,
 } from './modalEditUser.styled';
 import { Formik, Field, ErrorMessage, FormikHelpers } from 'formik';
-
 import { Button } from 'ui';
 import { ButtonSize, ButtonVariant } from 'types';
 import { ModalEditUserSchema } from './modalEditUserShema';

@@ -1,9 +1,7 @@
 import { theme } from 'constants/theme';
 import styled from 'styled-components';
 
-export const Section = styled.section`
-  padding-bottom: 32px;
-`;
+export const Section = styled.section``;
 
 export const Wrapper = styled.div`
   background-color: ${theme.colors.accent};
@@ -11,8 +9,13 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 146px);
-  border-radius: 60px;
+  min-height: calc(100vh - 120px);
+  border-radius: 30px;
+
+  @media (min-width: 768px) {
+    border-radius: 60px;
+    min-height: calc(100vh - 146px);
+  }
 `;
 
 export const TextWrapper = styled.div`

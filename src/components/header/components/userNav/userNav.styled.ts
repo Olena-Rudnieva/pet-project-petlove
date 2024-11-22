@@ -7,11 +7,11 @@ interface UserNavWrapperProps {
 }
 
 export const UserNavWrapper = styled.div<UserNavWrapperProps>`
-  /* display: none; */
   display: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 'flex' : 'none')};
   flex-direction: ${({ isMobileMenuOpen }) =>
     isMobileMenuOpen ? 'column' : 'row'};
   gap: 8px;
+  align-items: center;
 
   @media (min-width: 768px) {
     display: flex;

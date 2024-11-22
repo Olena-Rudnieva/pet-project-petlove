@@ -106,15 +106,7 @@ export const LoginForm = () => {
               </InputWrapper>
             </FormWrapper>
             <ButtonWrapper>
-              <Button
-                // padding={'16px 186px'}
-                // width={'424px'}
-                // height={'52px'}
-                type={'submit'}
-                // handleClick={handleSubmit}
-              >
-                LOG IN
-              </Button>
+              <Button type={'submit'}>LOG IN</Button>
             </ButtonWrapper>
           </form>
         )}

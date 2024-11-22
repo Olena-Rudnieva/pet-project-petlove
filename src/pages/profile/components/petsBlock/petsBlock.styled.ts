@@ -3,7 +3,10 @@ import { theme } from 'constants/theme';
 import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  @media (min-width: 768px) {
+    margin-bottom: 40px;
+  }
 `;
 
 export const UpperWrapper = styled.div`
@@ -16,8 +19,12 @@ export const UpperWrapper = styled.div`
 
 export const Title = styled.h2`
   color: ${theme.colors.secondBlack};
-  font-size: ${theme.fontSizes.s};
+  font-size: ${theme.fontSizes.xs};
   font-weight: ${theme.fontWeight.bold};
+
+  @media (min-width: 768px) {
+    font-size: ${theme.fontSizes.s};
+  }
 `;
 
 export const Link = styled(NavLink)`

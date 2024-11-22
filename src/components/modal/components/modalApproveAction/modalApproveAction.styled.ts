@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { theme } from 'constants/theme';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ padding: string }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 90px;
+  padding: ${({ padding }) => padding};
   width: 100%;
 `;
 

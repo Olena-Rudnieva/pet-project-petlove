@@ -7,5 +7,5 @@ export interface Notice {
   birthday: string;
   sex: string;
   species: string;
-  category?: string;
+  category: string;
 }

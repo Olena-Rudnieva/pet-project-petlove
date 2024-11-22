@@ -15,6 +15,7 @@ export const AvatarLink = styled(NavLink)`
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  overflow: hidden;
   background-color: ${theme.colors.beige};
 `;
 
@@ -30,4 +31,9 @@ export const Text = styled.p`
   line-height: 1;
   letter-spacing: -0.6px;
   color: ${theme.colors.black};
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
 `;

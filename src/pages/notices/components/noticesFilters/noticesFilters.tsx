@@ -1,6 +1,11 @@
-import { FilterWrapper, Form, Wrapper } from './noticesFilters.styled';
-import { CategoriesFilter } from './components/categoriesFilter';
-import { GenderFilter, SpeciesFilter } from './components';
+import {
+  BottomWrapper,
+  FiltersBlock,
+  Form,
+  UpperWrapper,
+} from './noticesFilters.styled';
+
+import { CategoriesFilter, GenderFilter, SpeciesFilter } from './components';
 
 interface NoticesFiltersProps {
   category: string;
@@ -20,14 +25,18 @@ export const NoticesFilters = ({
   setSpecies,
 }: NoticesFiltersProps) => {
   return (
-    <Wrapper>
-      <Form>
-        <FilterWrapper>
+    <Form>
+      <UpperWrapper>
+        <FiltersBlock>
           <CategoriesFilter category={category} setCategory={setCategory} />
+        </FiltersBlock>
+        <FiltersBlock>
           <GenderFilter gender={gender} setGender={setGender} />
-          <SpeciesFilter species={species} setSpecies={setSpecies} />
-        </FilterWrapper>
-      </Form>
-    </Wrapper>
+        </FiltersBlock>
+      </UpperWrapper>
+      <BottomWrapper>
+        <SpeciesFilter species={species} setSpecies={setSpecies} />
+      </BottomWrapper>
+    </Form>
   );
 };

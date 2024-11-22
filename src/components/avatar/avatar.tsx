@@ -1,3 +1,4 @@
+import { User } from 'types';
 import {
   AvatarBlock,
   AvatarWrapper,
@@ -7,15 +8,15 @@ import {
 import sprite from 'assets/sprite.svg';
 
 interface AvatarProps {
-  avatar: string | null;
+  user?: User;
 }
 
-export const Avatar = ({ avatar }: AvatarProps) => {
+export const Avatar = ({ user }: AvatarProps) => {
   return (
     <AvatarBlock>
       <AvatarWrapper>
-        {avatar ? (
-          <Image src={avatar} alt="User" />
+        {user?.avatar ? (
+          <Image src={user.avatar} alt="User" />
         ) : (
           <UserIconAvatar>
             <use href={sprite + '#icon-user'}></use>

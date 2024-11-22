@@ -17,11 +17,13 @@ import { AppDispatch } from 'redux/store';
 interface ModalApproveActionProps {
   handleModalToggle: () => void;
   onClick?: () => void;
+  padding?: string;
 }
 
 export const ModalApproveAction = ({
   handleModalToggle,
   onClick,
+  padding = '0',
 }: ModalApproveActionProps) => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
@@ -42,7 +44,7 @@ export const ModalApproveAction = ({
   };
 
   return (
-    <Wrapper>
+    <Wrapper padding={padding}>
       <Avatar>
         <Image src={registrationAvatar} alt="Avatar" />
       </Avatar>

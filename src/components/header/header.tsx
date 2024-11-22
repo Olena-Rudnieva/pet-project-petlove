@@ -12,8 +12,6 @@ export const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
-  console.log('isMobileMenuOpen', isMobileMenuOpen);
-
   const toggleMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };

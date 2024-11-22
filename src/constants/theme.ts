@@ -40,7 +40,8 @@ export const theme = {
     xxxl: '48px',
     xxxxl: '54px',
     xxxxxl: '90px',
-    xxxxxxl: '300px',
+    xxxxxxl: '120px',
+    xxxxxxxl: '300px',
   },
 
   transition: '250ms cubic-bezier(0.4, 0, 0.2, 1)',

@@ -2,12 +2,11 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   margin: 0 auto;
-  padding-top: 64px;
-  padding-bottom: 80px;
-  padding-left: 30px;
-  padding-right: 30px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 26px 0 80px 0;
+
+  @media (min-width: 768px) {
+    padding: 64px 0 80px 0;
+  }
 `;
 
 export const TitleWrapper = styled.div`
@@ -17,5 +16,10 @@ export const TitleWrapper = styled.div`
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 28px 20px;
+  justify-content: center;
+  gap: 20px;
+
+  @media (min-width: 768px) {
+    gap: 28px 20px;
+  }
 `;

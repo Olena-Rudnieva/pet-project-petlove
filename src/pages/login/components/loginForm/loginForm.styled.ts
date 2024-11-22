@@ -4,46 +4,60 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
-  padding: 77px 84px;
-  border-radius: 60px;
+  padding: 60px 20px;
+  border-radius: 30px;
   background-color: ${theme.colors.white};
+
+  @media (min-width: 768px) {
+    padding: 77px 84px;
+    border-radius: 60px;
+  }
 `;
 
 export const TitleWrapper = styled.div`
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 16px;
+  }
 `;
 
 export const Text = styled.p`
-  font-size: ${theme.fontSizes.s};
+  font-size: ${theme.fontSizes.xxs};
   font-weight: ${theme.fontWeight.medium};
-  line-height: 1.222;
-  letter-spacing: -0.16px;
+  line-height: 18px;
+  letter-spacing: -0.28px;
   color: ${theme.colors.black};
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+
+  @media (min-width: 768px) {
+    font-size: ${theme.fontSizes.s};
+    line-height: 1.222;
+    letter-spacing: -0.16px;
+    margin-bottom: 32px;
+  }
 `;
 
-export const FormWrapper = styled.div`
-  margin-bottom: 16px;
-`;
+export const FormWrapper = styled.div``;
 
 interface InputWrapperProps {
-    haserror?: boolean;
-    hassuccess?: boolean;
-  }
+  haserror?: boolean;
+  hassuccess?: boolean;
+}
 
 export const InputWrapper = styled.div<InputWrapperProps>`
   margin-bottom: 16px;
-  max-width: 424px;
   position: relative;
   width: 100%;
 
   input {
     width: 100%;
-    padding: 16px;
-    font-size: ${theme.fontSizes.xs};
+    padding: 12px;
+    font-size: ${theme.fontSizes.xxs};
     color: ${theme.colors.black};
     font-weight: ${theme.fontWeight.medium};
-    line-height: 1.25;
+    line-height: 18px;
+    letter-spacing: -0.42px;
     border: 1px solid
       ${props =>
         props.haserror
@@ -55,6 +69,13 @@ export const InputWrapper = styled.div<InputWrapperProps>`
     box-sizing: border-box;
     outline: none;
     transition: border-color ${theme.transition};
+
+    @media (min-width: 768px) {
+      padding: 16px;
+      font-size: ${theme.fontSizes.xs};
+      line-height: 1.25;
+      letter-spacing: -0.48px;
+    }
 
     &:focus {
       border-color: ${theme.colors.accent};
@@ -107,9 +128,18 @@ export const EyeIconVisible = styled(AiOutlineEye)`
 `;
 
 export const ButtonWrapper = styled.div`
-  display: inline-block;
-  margin-top: 16px;
-  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 12px;
+
+  @media (min-width: 768px) {
+    margin-top: 16px;
+    margin-bottom: 48px;
+  }
 `;
 
 export const SuccessIcon = styled.svg`

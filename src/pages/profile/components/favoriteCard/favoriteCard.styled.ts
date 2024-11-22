@@ -2,7 +2,7 @@ import { theme } from 'constants/theme';
 import styled from 'styled-components';
 
 export const NoticesItemWrapper = styled.li`
-  width: 320px;
+  width: 280px;
   padding: 24px;
   border-radius: 16px;
   background-color: ${theme.colors.white};
@@ -10,14 +10,32 @@ export const NoticesItemWrapper = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (min-width: 375px) {
+    width: 335px;
+  }
+
+  @media (min-width: 768px) {
+    width: 320px;
+  }
 `;
 
 export const ImageWrapper = styled.div`
-  width: 270px;
-  height: 155px;
+  width: 250px;
+  height: 144px;
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 24px;
+
+  @media (min-width: 375px) {
+    width: 287px;
+    height: 144px;
+  }
+
+  @media (min-width: 768px) {
+    width: 270px;
+    height: 155px;
+  }
 `;
 
 export const Image = styled.img`
@@ -28,10 +46,15 @@ export const Image = styled.img`
 
 export const Title = styled.h3`
   margin-bottom: 8px;
-  font-size: ${theme.fontSizes.s};
+  font-size: ${theme.fontSizes.xs};
   font-weight: ${theme.fontWeight.bold};
-  line-height: 1.3333;
+  line-height: 20px;
   color: ${theme.colors.secondBlack};
+
+  @media (min-width: 768px) {
+    font-size: ${theme.fontSizes.s};
+    line-height: 1.3333;
+  }
 `;
 
 export const Text = styled.p`
@@ -40,7 +63,6 @@ export const Text = styled.p`
   line-height: 1.28571;
   letter-spacing: -0.28px;
   color: ${theme.colors.secondBlack};
-  margin-bottom: 32px;
 `;
 
 export const List = styled.ul`

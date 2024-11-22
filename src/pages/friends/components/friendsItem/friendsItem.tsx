@@ -25,7 +25,7 @@ type FriendsItemProps = {
   };
 };
 
-export const FriendsItem: React.FC<FriendsItemProps> = ({ item }) => {
+export const FriendsItem = ({ item }: FriendsItemProps) => {
   const { title, imageUrl, email, address, addressUrl, phone, workDays } = item;
 
   return (
@@ -39,7 +39,9 @@ export const FriendsItem: React.FC<FriendsItemProps> = ({ item }) => {
         <TextWrapper>
           <Text>Email:</Text>
           {email ? (
-            <Link href={`mailto:${email}`}>{email}</Link>
+            <Link href={`mailto:${email}`}>
+              <Description>{email}</Description>
+            </Link>
           ) : (
             <NoText>unknown</NoText>
           )}

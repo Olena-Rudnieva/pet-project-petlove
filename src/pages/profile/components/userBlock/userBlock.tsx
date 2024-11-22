@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 import {
   EditBtn,
   EditIcon,
@@ -8,23 +11,25 @@ import {
   UserIcon,
   Wrapper,
 } from './userBlock.styled';
-import { useState } from 'react';
 import sprite from 'assets/sprite.svg';
 import { Avatar } from 'components/avatar';
 import { Modal } from 'components';
 import { ModalEditUser } from 'components/modal/components';
-import { useSelector } from 'react-redux';
 import { selectUser } from '../../../../redux/auth';
 
 export const UserBlock = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const isSmallScreen = useMediaQuery({ query: '(max-width: 767px)' });
+  const modalWidth = isSmallScreen ? '335px' : '448px';
+  const modalPadding = isSmallScreen ? '0' : '90px';
 
   const toggleModal = () => {
     setIsModalOpen(prevState => !prevState);
   };
 
   const user = useSelector(selectUser);
-  const { name, email, phone, avatar } = user;
+  const { name, email, phone } = user;
 
   return (
     <Wrapper>
@@ -35,14 +40,14 @@ export const UserBlock = () => {
             <use href={sprite + '#icon-user'}></use>
           </UserIcon>
         </StyledUser>
-        <Avatar avatar={avatar} />
+        <Avatar user={user} />
         <EditBtn onClick={toggleModal}>
           <EditIcon>
             <use href={sprite + '#icon-edit'}></use>
           </EditIcon>
         </EditBtn>
         {isModalOpen && (
-          <Modal isOpen={isModalOpen} onClose={toggleModal} width="480px">
+          <Modal isOpen={isModalOpen} onClose={toggleModal} width={modalWidth}>
             <ModalEditUser handleModalToggle={toggleModal} />
           </Modal>
         )}

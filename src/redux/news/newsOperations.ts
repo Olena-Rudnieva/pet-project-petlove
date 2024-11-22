@@ -24,15 +24,3 @@ export const fetchNews = createAsyncThunk(
     }
   }
 );
-
-// export const fetchNews = createAsyncThunk(
-//   'news/fetchNews',
-//   async (pageNumber: number, thunkAPI) => {
-//     try {
-//       const response = await axios.get(`${NEWS_URL}?page=${pageNumber}`);
-//       return response.data;
-//     } catch (e: any) {
-//       return thunkAPI.rejectWithValue(e.message);
-//     }
-//   }
-// );

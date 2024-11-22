@@ -10,6 +10,7 @@ import {
   Title,
   Value,
 } from './favoriteCard.styled';
+import { formattedDate, wordFromBigLetter } from 'utils';
 
 interface FavoriteCardProps {
   item: Notice;
@@ -20,10 +21,10 @@ export const FavoriteCard = ({ item }: FavoriteCardProps) => {
 
   const details = [
     { label: 'Name', value: item.name },
-    { label: 'Birthday', value: item.birthday },
-    { label: 'Sex', value: item.sex },
-    { label: 'Species', value: item.species },
-    { label: 'Category', value: item.category },
+    { label: 'Birthday', value: formattedDate(item.birthday) },
+    { label: 'Sex', value: wordFromBigLetter(item.sex) },
+    { label: 'Species', value: wordFromBigLetter(item.species) },
+    { label: 'Category', value: wordFromBigLetter(item.category) },
   ];
 
   return (

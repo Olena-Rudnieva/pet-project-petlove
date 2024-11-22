@@ -18,7 +18,7 @@ import { TbTrash } from 'react-icons/tb';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from 'redux/store';
 import { removePet } from '../../../../redux/pets';
-import { wordFromBigLetter } from 'utils';
+import { formattedDate, wordFromBigLetter } from 'utils';
 
 interface PetsItemProps {
   pet: Pet;
@@ -27,14 +27,9 @@ interface PetsItemProps {
 export const PetsItem = ({ pet }: PetsItemProps) => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const transformDate = (date: string) => {
-    const [year, month, day] = date.split('-');
-    return `${day}.${month}.${year}`;
-  };
-
   const details = [
     { label: 'Name', value: pet.name },
-    { label: 'Birthday', value: transformDate(pet.birthday) },
+    { label: 'Birthday', value: formattedDate(pet.birthday) },
     { label: 'Sex', value: wordFromBigLetter(pet.sex) },
     { label: 'Species', value: wordFromBigLetter(pet.species) },
   ];

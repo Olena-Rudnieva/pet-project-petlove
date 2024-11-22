@@ -1,15 +1,7 @@
 import styled from 'styled-components';
 import { theme } from 'constants/theme';
 
-export const Wrapper = styled.div`
-  /* padding: 50px; */
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 80px;
-  width: 100%; */
-`;
+export const Wrapper = styled.div``;
 
 export const Title = styled.h2`
   color: ${theme.colors.secondBlack};
@@ -29,13 +21,18 @@ export const Avatar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 86px;
-  height: 86px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   border: 2px solid ${theme.colors.beige};
   background-color: ${theme.colors.beige};
   margin-bottom: 12px;
   overflow: hidden;
+
+  @media (min-width: 768px) {
+    width: 86px;
+    height: 86px;
+  }
 `;
 
 export const UserIconAvatar = styled.svg`
@@ -159,16 +156,6 @@ export const SuccessMessage = styled.div`
   margin-top: 4px;
   margin-bottom: 12px;
 `;
-
-// export const Link = styled(NavLink)`
-//   color: ${theme.colors.accent};
-//   transition: color ${theme.transition};
-
-//   &:hover,
-//   :focus {
-//     color: ${theme.colors.beige};
-//   }
-// `;
 
 export const LinkWrapper = styled.div`
   display: flex;

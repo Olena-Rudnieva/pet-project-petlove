@@ -7,30 +7,45 @@ export const Wrapper = styled.div`
 
 export const Title = styled.h2`
   color: ${theme.colors.secondBlack};
-  font-size: ${theme.fontSizes.s};
+  font-size: ${theme.fontSizes.xs};
   font-weight: ${theme.fontWeight.bold};
-  line-height: 1.33;
+  line-height: 20px;
   margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    font-size: ${theme.fontSizes.s};
+    line-height: 1.33;
+  }
 `;
 
 export const InputWrapper = styled.div`
-  margin-bottom: 14px;
-  width: 440px;
-  /* width: 100%; */
+  margin-bottom: 10px;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    margin-bottom: 14px;
+    width: 440px;
+  }
 
   input {
     width: 100%;
     padding: 16px;
-    font-size: ${theme.fontSizes.xs};
+    font-size: ${theme.fontSizes.xxs};
     color: ${theme.colors.black};
     font-weight: ${theme.fontWeight.medium};
-    line-height: 1.25;
-    letter-spacing: -0.48px;
+    line-height: 18px;
+    letter-spacing: -0.42px;
     border: 1px solid ${theme.colors.accent};
     border-radius: 30px;
     box-sizing: border-box;
     outline: none;
     transition: border-color ${theme.transition};
+
+    @media (min-width: 768px) {
+      font-size: ${theme.fontSizes.xs};
+      line-height: 1.25;
+      letter-spacing: -0.48px;
+    }
 
     &.filled {
       border: 1px solid ${theme.colors.accent};

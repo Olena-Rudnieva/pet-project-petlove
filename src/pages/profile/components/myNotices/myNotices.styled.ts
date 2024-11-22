@@ -1,23 +1,20 @@
 import styled from 'styled-components';
 import { theme } from 'constants/theme';
 
-export const MyNoticesWrapper = styled.div`
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-`;
+export const MyNoticesWrapper = styled.div``;
 
 export const ButtonWrapper = styled.div`
   display: flex;
   gap: 8px;
   margin-bottom: 32px;
-  /* justify-content: center;
-  align-items: center; */
+
+  @media (min-width: 768px) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const TextWrapper = styled.div`
   padding: 180px 135px 135px 103px;
-  /* text-align: center; */
 `;
 
 export const Text = styled.p`

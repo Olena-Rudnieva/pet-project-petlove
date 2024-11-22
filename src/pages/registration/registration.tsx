@@ -1,3 +1,4 @@
+import { useMediaQuery } from 'react-responsive';
 import registrationImg from 'assets/images/registrationImg.png';
 import { registrationPet } from 'constants/pets';
 import { Image, PetBlockWrapper, Wrapper } from './registration.styled';
@@ -7,12 +8,14 @@ import { RegistrationForm } from './components/registrationForm';
 import { Container } from 'ui';
 
 const Registration = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+
   return (
     <Container>
       <Wrapper>
         <PetBlockWrapper>
           <Image src={registrationImg} alt="Pet" />
-          {registrationPet && <PetInfo pet={registrationPet} />}
+          {!isMobile && registrationPet && <PetInfo pet={registrationPet} />}
         </PetBlockWrapper>
         <RegistrationForm />
       </Wrapper>

@@ -4,22 +4,32 @@ import { theme } from 'constants/theme';
 export const Wrapper = styled.div`
   position: relative;
   display: flex;
-  gap: 25px;
+  gap: 14px;
   margin-bottom: 14px;
   border-radius: 20px;
   border: 1px solid ${theme.colors.grey};
-  padding: 20px;
+  padding: 16px;
+
+  @media (min-width: 768px) {
+    padding: 20px;
+    gap: 25px;
+  }
 `;
 
 export const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90px;
-  height: 90px;
+  width: 66px;
+  height: 66px;
   background-color: ${theme.colors.beige};
   border-radius: 50%;
   overflow: hidden;
+
+  @media (min-width: 768px) {
+    width: 90px;
+    height: 90px;
+  }
 `;
 
 export const Image = styled.img`
@@ -29,13 +39,22 @@ export const Image = styled.img`
 `;
 
 export const PetIcon = styled.svg`
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
   fill: ${theme.colors.accent};
+
+  @media (min-width: 768px) {
+    width: 44px;
+    height: 44px;
+  }
 `;
 
 export const TextWrapper = styled.div`
-  margin-top: 14px;
+  margin-top: 0;
+
+  @media (min-width: 768px) {
+    margin-top: 14px;
+  }
 `;
 
 export const Title = styled.h3`
@@ -47,8 +66,13 @@ export const Title = styled.h3`
 
 export const List = styled.ul`
   display: flex;
-  gap: 27px;
-  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px 7px;
+
+  @media (min-width: 768px) {
+    gap: 27px;
+    margin-bottom: 16px;
+  }
 `;
 
 export const ListItem = styled.li`
@@ -75,20 +99,32 @@ export const Value = styled.p`
 
 export const IconWrapper = styled.div`
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 12px;
+  right: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 38px;
-  height: 38px;
+  width: 30px;
+  height: 30px;
   background-color: ${theme.colors.beige};
   border-radius: 50%;
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    top: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+  }
 `;
 
 export const DeleteIcon = styled.div`
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   color: ${theme.colors.accent};
-  cursor: pointer;
+
+  @media (min-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
 `;

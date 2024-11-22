@@ -24,6 +24,7 @@ import {
   addFavoriteNotices,
   removeFavoriteNotices,
 } from '../../../../redux/notices';
+import { formattedDate, wordFromBigLetter } from 'utils';
 
 interface NoticesItemProps {
   item: Notice;
@@ -63,10 +64,10 @@ export const NoticesItem = ({
 
   const details = [
     { label: 'Name', value: item.name },
-    { label: 'Birthday', value: item.birthday },
-    { label: 'Sex', value: item.sex },
-    { label: 'Species', value: item.species },
-    { label: 'Category', value: item.category },
+    { label: 'Birthday', value: formattedDate(item.birthday) },
+    { label: 'Sex', value: wordFromBigLetter(item.sex) },
+    { label: 'Species', value: wordFromBigLetter(item.species) },
+    { label: 'Category', value: wordFromBigLetter(item.category) },
   ];
 
   return (

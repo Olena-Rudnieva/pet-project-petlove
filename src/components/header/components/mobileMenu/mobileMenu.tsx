@@ -30,11 +30,7 @@ export const MobileMenu = ({
           onClick={onClose}
         />
         {isLoggedIn ? (
-          <UserNav
-            isMobileMenuOpen={isMobileMenuOpen}
-            onClick={onClose}
-            isMobile={isMobile}
-          />
+          <UserNav isMobileMenuOpen={isMobileMenuOpen} onClick={onClose} />
         ) : (
           <AuthNav isMobileMenuOpen={isMobileMenuOpen} onClick={onClose} />
         )}
