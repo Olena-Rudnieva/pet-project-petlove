@@ -14,7 +14,11 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const TextWrapper = styled.div`
-  padding: 180px 135px 135px 103px;
+  padding: 0;
+
+  @media (min-width: 768px) {
+    padding: 180px 135px 135px 103px;
+  }
 `;
 
 export const Text = styled.p`
@@ -23,7 +27,11 @@ export const Text = styled.p`
   line-height: 1.25;
   letter-spacing: -0.32px;
   color: ${theme.colors.black};
-  width: 458px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    width: 458px;
+  }
 `;
 
 export const Accent = styled.span`

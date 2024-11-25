@@ -1,11 +1,14 @@
 import { Hero } from 'components';
 import { Container } from 'ui/container';
+import { Section } from './home.styled';
 
 const Home = () => {
   return (
-    <Container>
-      <Hero />
-    </Container>
+    <Section>
+      <Container>
+        <Hero />
+      </Container>
+    </Section>
   );
 };
 

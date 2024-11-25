@@ -39,7 +39,7 @@ export const ModalAttention = ({ handleModalToggle }: any) => {
       <ButtonWrapper>
         <Button
           type={'button'}
-          size={ButtonSize.small}
+          size={ButtonSize.extrasmall}
           variant={ButtonVariant.orange}
           onClick={handleLogin}
         >
@@ -47,7 +47,7 @@ export const ModalAttention = ({ handleModalToggle }: any) => {
         </Button>
         <Button
           type={'button'}
-          size={ButtonSize.small}
+          size={ButtonSize.extrasmall}
           variant={ButtonVariant.beige}
           onClick={handleRegister}
         >

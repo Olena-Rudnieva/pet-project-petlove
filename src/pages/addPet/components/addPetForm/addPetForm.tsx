@@ -10,6 +10,7 @@ import {
   ButtonWrapper,
   CalendarIcon,
   customStyles,
+  DatePickerWrapper,
   ErrorText,
   FormWrapper,
   Image,
@@ -154,24 +155,27 @@ export const AddPetForm = () => {
               <OptionsWrapper>
                 <InputWrapper>
                   <Label>
-                    <DatePicker
-                      selected={birthday}
-                      onChange={(date: Date | null) => {
-                        setBirthday(date);
-                        setFieldValue(
-                          'birthday',
-                          date
-                            ? date.toLocaleDateString('uk-UA', {
-                                day: '2-digit',
-                                month: '2-digit',
-                                year: 'numeric',
-                              })
-                            : ''
-                        );
-                      }}
-                      dateFormat="dd.MM.yyyy"
-                      placeholderText="00.00.0000"
-                    />
+                    <DatePickerWrapper>
+                      <DatePicker
+                        selected={birthday}
+                        onChange={(date: Date | null) => {
+                          setBirthday(date);
+                          setFieldValue(
+                            'birthday',
+                            date
+                              ? date.toLocaleDateString('uk-UA', {
+                                  day: '2-digit',
+                                  month: '2-digit',
+                                  year: 'numeric',
+                                })
+                              : ''
+                          );
+                        }}
+                        dateFormat="dd.MM.yyyy"
+                        placeholderText="00.00.0000"
+                        className="custom-date-picker"
+                      />
+                    </DatePickerWrapper>
                     <ErrorMessage name="birthday" component={ErrorText} />
                   </Label>
                   <CalendarIcon>

@@ -1,3 +1,7 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+import { AppDispatch } from 'redux/store';
 import { ButtonSize, ButtonVariant, Notice } from 'types';
 import {
   ButtonWrapper,
@@ -13,12 +17,8 @@ import {
 } from './noticesItem.styled';
 import { Button } from 'ui';
 import { FavoriteHeart } from 'components/favoriteHeart';
-import { useState } from 'react';
 import { Modal } from 'components';
 import { ModalAttention, ModalNotice } from 'components/modal/components';
-
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from 'redux/store';
 
 import {
   addFavoriteNotices,
@@ -41,6 +41,9 @@ export const NoticesItem = ({
   const dispatch = useDispatch<AppDispatch>();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const isSmallScreen = useMediaQuery({ query: '(max-width: 767px)' });
+  const modalWidth = isSmallScreen ? '335px' : '448px';
 
   const toggleModal = () => {
     setIsModalOpen(prevState => !prevState);
@@ -103,7 +106,7 @@ export const NoticesItem = ({
         />
       </ButtonWrapper>
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={toggleModal} width="466px">
+        <Modal isOpen={isModalOpen} onClose={toggleModal} width={modalWidth}>
           {isLoggedIn ? (
             <ModalNotice
               handleModalToggle={toggleModal}

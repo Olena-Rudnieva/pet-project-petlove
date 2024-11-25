@@ -3,6 +3,11 @@ import styled from 'styled-components';
 export const SelectionWrapper = styled.div`
   display: flex;
   gap: 8px;
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
 `;
 
 interface StyledRadioWrapperProps {

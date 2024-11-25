@@ -9,8 +9,8 @@ export const AddPetFormSchema = yup.object().shape({
   sex: yup
     .string()
     .oneOf(
-      ['male', 'female', 'other'],
-      'Sex must be either male, female or other'
+      ['male', 'female', 'multiple'],
+      'Sex must be either male, female or multiple'
     )
     .required('Sex is required'),
 });

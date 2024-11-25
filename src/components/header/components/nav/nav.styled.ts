@@ -14,7 +14,7 @@ export const NavWrapper = styled.div<NavWrapperProps>`
   gap: 10px;
   margin-left: ${({ isMobile }) => (isMobile ? '0' : '264px')};
 
-  @media (min-width: 769px) {
+  @media (min-width: 1280px) {
     display: flex;
     gap: 10px;
     margin-left: 264px;

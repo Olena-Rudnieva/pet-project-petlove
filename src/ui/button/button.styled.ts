@@ -68,13 +68,13 @@ export const StyledButton = styled.button<{
       case ButtonSize.extrasmall:
         return '12px 16px';
       case ButtonSize.small:
-        return '14px 44px';
+        return '14px 30px';
       case ButtonSize.medium:
         return '14px 89px';
       case ButtonSize.large:
         return '14px 89px';
       case ButtonSize.extralarge:
-        return '16px 170px';
+        return '16px 120px';
       default:
         return '14px 89px';
     }

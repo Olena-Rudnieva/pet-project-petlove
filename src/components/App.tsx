@@ -13,7 +13,7 @@ import { refreshUser, selectIsRefreshing } from '../redux/auth';
 import { PrivateRoute } from './privateRoute';
 import { RestrictedRoute } from './restrictedRoute';
 
-const Home = lazy(() => import('pages/home'));
+const Home = lazy(() => import('pages/home/home'));
 const News = lazy(() => import('pages/news/news'));
 const Notices = lazy(() => import('pages/notices/notices'));
 const Friends = lazy(() => import('pages/friends/friends'));

@@ -72,11 +72,11 @@ export const GenderSelection = ({ setFieldValue }: GenderSelectionProps) => {
           <Field
             type="radio"
             name="sex"
-            value="mixed"
-            onChange={() => handleGenderChange('mixed')}
+            value="multiple"
+            onChange={() => handleGenderChange('multiple')}
           />
           <span>
-            <MultipleIcon selected={selectedGender === 'mixed'}>
+            <MultipleIcon selected={selectedGender === 'multiple'}>
               <use href={sprite + '#icon-multiple'}></use>
             </MultipleIcon>
           </span>

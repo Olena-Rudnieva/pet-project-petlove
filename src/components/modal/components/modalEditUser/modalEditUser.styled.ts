@@ -54,14 +54,6 @@ export const BlockWrapper = styled.div`
   gap: 8px;
 `;
 
-export const PhotoWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 8px;
-  margin-bottom: 4px;
-`;
-
 export const UploadWrapper = styled.div`
   position: relative;
   display: flex;
@@ -75,7 +67,7 @@ export const UploadBtn = styled.button`
   gap: 8px;
   justify-content: center;
   align-items: center;
-  padding: 18px 40px 18px 16px;
+  padding: 16px 13px 16px 14px;
   border: none;
   border-radius: 30px;
   background-color: ${theme.colors.beige};
@@ -83,9 +75,14 @@ export const UploadBtn = styled.button`
   font-weight: ${theme.fontWeight.medium};
   color: ${theme.colors.black};
   white-space: nowrap;
+
   &:hover,
   &:focus {
     background-color: #efd49f;
+  }
+
+  @media (min-width: 768px) {
+    padding: 18px 40px 18px 16px;
   }
 `;
 
@@ -111,19 +108,28 @@ export const InputWrapper = styled.div`
   input {
     width: 100%;
     padding: 16px;
-    font-size: ${theme.fontSizes.xs};
+    font-size: ${theme.fontSizes.xxs};
     color: ${theme.colors.black};
     font-weight: ${theme.fontWeight.medium};
-    line-height: 1.25;
-    letter-spacing: -0.48px;
+    line-height: 18px;
+    letter-spacing: -0.42px;
     border: 1px solid ${theme.colors.lightGrey};
     border-radius: 30px;
     box-sizing: border-box;
     outline: none;
     transition: border-color ${theme.transition};
 
+    @media (min-width: 768px) {
+      padding: 12px;
+      font-size: ${theme.fontSizes.xs};
+      line-height: 1.25;
+      letter-spacing: -0.48px;
+    }
+
     &:focus {
       border-color: ${theme.colors.accent};
+      line-height: 1.25;
+      letter-spacing: -0.48px;
     }
 
     &.photo {
@@ -167,4 +173,10 @@ export const LinkWrapper = styled.div`
   line-height: 1.428;
   letter-spacing: -0.42px;
   color: ${theme.colors.mediumGrey};
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

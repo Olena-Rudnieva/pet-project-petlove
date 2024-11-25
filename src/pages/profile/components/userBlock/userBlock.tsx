@@ -22,7 +22,6 @@ export const UserBlock = () => {
 
   const isSmallScreen = useMediaQuery({ query: '(max-width: 767px)' });
   const modalWidth = isSmallScreen ? '335px' : '448px';
-  // const modalPadding = isSmallScreen ? '0' : '90px';
 
   const toggleModal = () => {
     setIsModalOpen(prevState => !prevState);
@@ -48,7 +47,10 @@ export const UserBlock = () => {
         </EditBtn>
         {isModalOpen && (
           <Modal isOpen={isModalOpen} onClose={toggleModal} width={modalWidth}>
-            <ModalEditUser handleModalToggle={toggleModal} />
+            <ModalEditUser
+              handleModalToggle={toggleModal}
+              isSmallScreen={isSmallScreen}
+            />
           </Modal>
         )}
       </UpperWrapper>

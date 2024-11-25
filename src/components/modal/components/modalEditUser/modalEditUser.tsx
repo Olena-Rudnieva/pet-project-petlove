@@ -4,6 +4,7 @@ import {
   Avatar,
   AvatarWrapper,
   BlockWrapper,
+  ButtonWrapper,
   ErrorText,
   FormWrapper,
   Image,
@@ -39,9 +40,13 @@ const initialValues: EditData = {
 
 interface ModalEditUserProps {
   handleModalToggle: () => void;
+  isSmallScreen: boolean;
 }
 
-export const ModalEditUser = ({ handleModalToggle }: ModalEditUserProps) => {
+export const ModalEditUser = ({
+  handleModalToggle,
+  isSmallScreen,
+}: ModalEditUserProps) => {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
 
   const dispatch = useDispatch<AppDispatch>();
@@ -101,9 +106,11 @@ export const ModalEditUser = ({ handleModalToggle }: ModalEditUserProps) => {
                   >
                     Upload photo
                   </UploadBtn>
-                  <UploadIcon>
-                    <use href={sprite + '#icon-upload'}></use>
-                  </UploadIcon>
+                  {!isSmallScreen && (
+                    <UploadIcon>
+                      <use href={sprite + '#icon-upload'}></use>
+                    </UploadIcon>
+                  )}
                 </UploadWrapper>
               </BlockWrapper>
               <InputWrapper>
@@ -128,13 +135,15 @@ export const ModalEditUser = ({ handleModalToggle }: ModalEditUserProps) => {
               </InputWrapper>
             </FormWrapper>
 
-            <Button
-              variant={ButtonVariant.orange}
-              size={ButtonSize.extralarge}
-              type="submit"
-            >
-              Save
-            </Button>
+            <ButtonWrapper>
+              <Button
+                variant={ButtonVariant.orange}
+                size={ButtonSize.extralarge}
+                type="submit"
+              >
+                Save
+              </Button>
+            </ButtonWrapper>
           </form>
         )}
       </Formik>
