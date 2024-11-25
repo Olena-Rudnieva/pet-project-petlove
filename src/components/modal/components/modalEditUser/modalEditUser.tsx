@@ -99,7 +99,7 @@ export const ModalEditUser = ({
                 </InputWrapper>
                 <UploadWrapper>
                   <UploadBtn
-                    onClick={e => {
+                    onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                       e.preventDefault();
                       setSelectedPhoto(values.avatar);
                     }}
