@@ -15,10 +15,15 @@ export const FriendsItemWrapper = styled.li`
   box-shadow: ${theme.boxShadow.friends};
 
   @media (min-width: 768px) {
-    padding: 40px 40px 40px 20px;
-    width: 371px;
+    padding: 40px 20px 20px 20px;
+    width: 342px;
     height: 196px;
     gap: 20px;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 40px 40px 40px 20px;
+    width: 371px;
   }
 `;
 

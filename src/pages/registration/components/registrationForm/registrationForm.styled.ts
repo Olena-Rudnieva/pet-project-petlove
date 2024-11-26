@@ -4,12 +4,13 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
+  flex-grow: 1;
   padding: 28px 20px;
   border-radius: 30px;
   background-color: ${theme.colors.white};
 
   @media (min-width: 768px) {
-    padding: 77px 84px;
+    padding: 66px 84px;
     border-radius: 60px;
   }
 `;
@@ -47,7 +48,6 @@ interface InputWrapperProps {
 
 export const InputWrapper = styled.div<InputWrapperProps>`
   margin-bottom: 16px;
-  max-width: 424px;
   position: relative;
   width: 100%;
 

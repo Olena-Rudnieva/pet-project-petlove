@@ -16,7 +16,7 @@ export const TitleWrapper = styled.div`
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
 
   @media (min-width: 768px) {

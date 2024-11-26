@@ -11,10 +11,18 @@ export const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+  const isTablet = useMediaQuery({
+    query: '(min-width: 768px) and (max-width: 1279px)',
+  });
 
+  // const toggleMenu = () => {
+  //   setMobileMenuOpen(!isMobileMenuOpen);
+  // };
   const toggleMenu = () => {
-    setMobileMenuOpen(!isMobileMenuOpen);
+    setMobileMenuOpen(prev => !prev);
   };
+
+  const isMenuVisible = isMobile || isTablet;
 
   return (
     <HeaderWrapper>
@@ -30,9 +38,10 @@ export const Header = () => {
           <BurgerBtn onClick={toggleMenu} />
         </Wrapper>
       </Container>
-      {isMobileMenuOpen && (
+      {isMenuVisible && isMobileMenuOpen && (
         <MobileMenu
           isMobile={isMobile}
+          isTablet={isTablet}
           isMobileMenuOpen={isMobileMenuOpen}
           onClose={toggleMenu}
         />

@@ -91,6 +91,14 @@ export const InputWrapper = styled.div<InputWrapperProps>`
   position: relative;
   width: 100%;
 
+  @media (min-width: 768px) {
+    max-width: 100%;
+  }
+
+  @media (min-width: 1280px) {
+    max-width: 424px;
+  }
+
   input {
     width: 100%;
     padding: 16px;
@@ -164,6 +172,14 @@ export const CalendarIcon = styled.svg`
   position: absolute;
   top: 16px;
   right: 16px;
+
+  @media (min-width: 768px) {
+    right: 50px;
+  }
+
+  @media (min-width: 1280px) {
+    right: 16px;
+  }
 `;
 
 export const Label = styled.label`

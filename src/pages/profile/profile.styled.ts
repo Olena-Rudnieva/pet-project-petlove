@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   gap: 32px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1280px) {
     flex-direction: row;
   }
 `;

@@ -13,10 +13,15 @@ export const TextWrapper = styled.div`
   border-radius: 30px;
 
   @media (min-width: 768px) {
+    padding: 80px 32px 44px 32px;
+    gap: 32px;
+    border-radius: 60px;
+  }
+
+  @media (min-width: 1280px) {
     flex-direction: row;
     padding: 80px 64px 32px 64px;
     gap: 73px;
-    border-radius: 60px;
   }
 `;
 
@@ -28,6 +33,13 @@ export const Title = styled.h1`
   letter-spacing: -2.7px;
 
   @media (min-width: 768px) {
+    font-size: 80px;
+    line-height: 77px;
+    letter-spacing: -2.4px;
+    width: 640px;
+  }
+
+  @media (min-width: 1280px) {
     font-size: ${theme.fontSizes.xxxxxl};
     width: 760px;
   }

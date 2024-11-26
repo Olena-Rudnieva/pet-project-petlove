@@ -13,6 +13,10 @@ export const NoticesItemWrapper = styled.li`
   justify-content: space-between;
 
   @media (min-width: 768px) {
+    width: 342px;
+  }
+
+  @media (min-width: 1280px) {
     width: 363px;
   }
 `;
@@ -27,8 +31,12 @@ export const ImageWrapper = styled.div`
   margin-bottom: 24px;
 
   @media (min-width: 768px) {
-    width: 315px;
+    width: 294px;
     height: 178px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 315px;
   }
 `;
 

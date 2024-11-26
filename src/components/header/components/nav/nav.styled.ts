@@ -4,15 +4,18 @@ import { theme } from 'constants/theme';
 
 interface NavWrapperProps {
   isMobile: boolean;
+  isTablet: boolean;
   isMobileMenuOpen: boolean;
 }
 
 export const NavWrapper = styled.div<NavWrapperProps>`
-  display: ${({ isMobile, isMobileMenuOpen }) =>
-    isMobile && isMobileMenuOpen ? 'flex' : 'none'};
-  flex-direction: ${({ isMobile }) => (isMobile ? 'column' : 'row')};
+  display: ${({ isMobile, isTablet, isMobileMenuOpen }) =>
+    (isMobile || isTablet) && isMobileMenuOpen ? 'flex' : 'none'};
+  flex-direction: ${({ isMobile, isTablet }) =>
+    isMobile || isTablet ? 'column' : 'row'};
   gap: 10px;
-  margin-left: ${({ isMobile }) => (isMobile ? '0' : '264px')};
+  margin-left: ${({ isMobile, isTablet }) =>
+    isMobile || isTablet ? '0' : '264px'};
 
   @media (min-width: 1280px) {
     display: flex;

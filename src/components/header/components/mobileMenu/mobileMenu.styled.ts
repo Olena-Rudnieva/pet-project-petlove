@@ -23,6 +23,10 @@ export const MobileMenuWrapper = styled.div<MobileMenuWrapperProps>`
     isOpen ? 'translateX(0)' : 'translateX(-100%)'};
 
   @media (min-width: 768px) {
+    width: 374px;
+  }
+
+  @media (min-width: 1280px) {
     display: none;
   }
 `;

@@ -24,12 +24,17 @@ export const AvatarWrapper = styled.div`
   overflow: hidden;
 
   @media (min-width: 768px) {
-    margin-left: 85px;
-    margin-right: 127px;
+    margin-left: 177px;
+    margin-right: 219px;
     width: 110px;
     height: 110px;
     margin-top: 0;
     margin-bottom: 46px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-left: 85px;
+    margin-right: 127px;
   }
 `;
 

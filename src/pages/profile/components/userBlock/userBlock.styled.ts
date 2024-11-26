@@ -22,7 +22,7 @@ export const InputWrapper = styled.div`
   margin-bottom: 10px;
   width: 100%;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1280px) {
     margin-bottom: 14px;
     width: 440px;
   }

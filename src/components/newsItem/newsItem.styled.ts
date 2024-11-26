@@ -12,9 +12,13 @@ export const NewsItemWrapper = styled.li`
   margin-right: auto;
 
   @media (min-width: 768px) {
-    width: 361px;
+    width: 340px;
     margin-left: 0;
     margin-right: 0;
+  }
+
+  @media (min-width: 1280px) {
+    width: 361px;
   }
 `;
 
@@ -28,8 +32,12 @@ export const ImageWrapper = styled.div`
   margin-bottom: 28px;
 
   @media (min-width: 768px) {
-    width: 361px;
+    width: 340px;
     height: 226px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 361px;
   }
 `;
 

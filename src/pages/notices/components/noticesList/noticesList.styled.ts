@@ -8,7 +8,10 @@ export const List = styled.ul`
   margin-bottom: 44px;
 
   @media (min-width: 768px) {
-    gap: 40px 32px;
     margin-bottom: 60px;
+  }
+
+  @media (min-width: 1280px) {
+    gap: 40px 32px;
   }
 `;
