@@ -7,7 +7,7 @@ import { LoginForm } from './components/loginForm';
 import { Container } from 'ui';
 
 const Login = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+  const ismobile = useMediaQuery({ query: '(max-width: 767px)' });
 
   return (
     <Section>
@@ -15,7 +15,7 @@ const Login = () => {
         <Wrapper>
           <PetBlockWrapper>
             <Image src={loginImg} alt="Pet" />
-            {!isMobile && loginPet && <PetInfo pet={loginPet} />}
+            {!ismobile && loginPet && <PetInfo pet={loginPet} />}
           </PetBlockWrapper>
           <LoginForm />
         </Wrapper>

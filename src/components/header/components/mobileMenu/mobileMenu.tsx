@@ -7,15 +7,15 @@ import { UserNav } from '../userNav';
 import { AuthNav } from '../authNav';
 
 interface MobileMenuProps {
-  isMobile: boolean;
-  isTablet: boolean;
+  ismobile: boolean;
+  istablet: boolean;
   isMobileMenuOpen: boolean;
   onClose: () => void;
 }
 
 export const MobileMenu = ({
-  isMobile,
-  isTablet,
+  ismobile,
+  istablet,
   isMobileMenuOpen,
   onClose,
 }: MobileMenuProps) => {
@@ -27,8 +27,8 @@ export const MobileMenu = ({
       </CloseButton>
       <Wrapper>
         <Nav
-          isMobile={isMobile}
-          isTablet={isTablet}
+          ismobile={ismobile}
+          istablet={istablet}
           isMobileMenuOpen={isMobileMenuOpen}
           onClick={onClose}
         />

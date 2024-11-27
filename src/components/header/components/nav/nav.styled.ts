@@ -3,19 +3,19 @@ import { NavLink } from 'react-router-dom';
 import { theme } from 'constants/theme';
 
 interface NavWrapperProps {
-  isMobile: boolean;
-  isTablet: boolean;
-  isMobileMenuOpen: boolean;
+  ismobile?: boolean;
+  istablet?: boolean;
+  isMobileMenuOpen?: boolean;
 }
 
 export const NavWrapper = styled.div<NavWrapperProps>`
-  display: ${({ isMobile, isTablet, isMobileMenuOpen }) =>
-    (isMobile || isTablet) && isMobileMenuOpen ? 'flex' : 'none'};
-  flex-direction: ${({ isMobile, isTablet }) =>
-    isMobile || isTablet ? 'column' : 'row'};
+  display: ${({ ismobile, istablet, isMobileMenuOpen }) =>
+    (ismobile || istablet) && isMobileMenuOpen ? 'flex' : 'none'};
+  flex-direction: ${({ ismobile, istablet }) =>
+    ismobile || istablet ? 'column' : 'row'};
   gap: 10px;
-  margin-left: ${({ isMobile, isTablet }) =>
-    isMobile || isTablet ? '0' : '264px'};
+  margin-left: ${({ ismobile, istablet }) =>
+    ismobile || istablet ? '0' : '264px'};
 
   @media (min-width: 1280px) {
     display: flex;

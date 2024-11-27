@@ -4,18 +4,17 @@ export const customStyles = {
     width: '100%',
   }),
   control: (provided: any, state: any) => {
-    const isTablet = window.innerWidth >= 768;
+    const istablet = window.innerWidth >= 768;
 
     return {
       ...provided,
       width: '100%',
-      paddingTop: isTablet ? '8px' : '4px',
-      paddingBottom: isTablet ? '8px' : '4px',
-      // padding: isTablet ? '8px 8px 8px 14px' : '4px 4px 4px 14px',
-      fontSize: isTablet ? '16px' : '14px',
+      paddingTop: istablet ? '8px' : '4px',
+      paddingBottom: istablet ? '8px' : '4px',
+      fontSize: istablet ? '16px' : '14px',
       color: '#000',
       fontWeight: '500',
-      lineHeight: isTablet ? '20px' : '18px',
+      lineHeight: istablet ? '20px' : '18px',
       letterSpacing: '3%',
       border: state.isFocused ? '1px solid #F6B83D' : '1px solid #e0e0e0',
       borderRadius: '30px',

@@ -13,7 +13,7 @@ import { RegistrationForm } from './components/registrationForm';
 import { Container } from 'ui';
 
 const Registration = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+  const ismobile = useMediaQuery({ query: '(max-width: 767px)' });
 
   return (
     <Section>
@@ -21,7 +21,7 @@ const Registration = () => {
         <Wrapper>
           <PetBlockWrapper>
             <Image src={registrationImg} alt="Pet" />
-            {!isMobile && registrationPet && <PetInfo pet={registrationPet} />}
+            {!ismobile && registrationPet && <PetInfo pet={registrationPet} />}
           </PetBlockWrapper>
           <RegistrationForm />
         </Wrapper>

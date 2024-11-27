@@ -17,8 +17,5 @@ export const ModalEditUserSchema = yup.object().shape({
     .string()
     .matches(emailRegEx, { message: 'Please enter a valid email' })
     .required('Email is required'),
-  phone: yup
-    .string()
-    // .matches(phoneRegEx, { message: 'Please enter a valid phone number' })
-    .notRequired(),
+  phone: yup.string().notRequired(),
 });

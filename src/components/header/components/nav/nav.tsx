@@ -2,22 +2,22 @@ import { links } from 'constants/links';
 import { NavWrapper, StyledLink } from './nav.styled';
 
 interface NavProps {
-  isMobile?: boolean;
-  isTablet?: boolean;
+  ismobile?: boolean;
+  istablet?: boolean;
   isMobileMenuOpen?: boolean;
   onClick?: () => void;
 }
 
 export const Nav = ({
-  isMobile = false,
-  isTablet = false,
+  ismobile,
+  istablet,
   onClick,
   isMobileMenuOpen = false,
 }: NavProps) => {
   return (
     <NavWrapper
-      isMobile={isMobile}
-      isTablet={isTablet}
+      ismobile={ismobile}
+      istablet={istablet}
       isMobileMenuOpen={isMobileMenuOpen}
     >
       {links.map(link => (

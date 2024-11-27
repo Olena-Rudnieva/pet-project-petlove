@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  // fetchCurrentUser,
   fetchCurrentUserFull,
   logIn,
   logOut,
@@ -51,13 +50,6 @@ const authSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
-      // .addCase(fetchCurrentUser.fulfilled, (state, action) => {
-      //   state.user.name = action.payload.name;
-      //   state.user.email = action.payload.email;
-      //   state.user.noticesFavorites = action.payload.noticesFavorites;
-      //   state.token = action.payload.token;
-      //   state.isLoggedIn = true;
-      // })
       .addCase(fetchCurrentUserFull.fulfilled, (state, action) => {
         state.user = action.payload;
         state.token = action.payload.token;

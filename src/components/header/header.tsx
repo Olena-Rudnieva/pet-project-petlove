@@ -10,19 +10,16 @@ import { useMediaQuery } from 'react-responsive';
 export const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
-  const isTablet = useMediaQuery({
+  const ismobile = useMediaQuery({ query: '(max-width: 767px)' });
+  const istablet = useMediaQuery({
     query: '(min-width: 768px) and (max-width: 1279px)',
   });
 
-  // const toggleMenu = () => {
-  //   setMobileMenuOpen(!isMobileMenuOpen);
-  // };
   const toggleMenu = () => {
     setMobileMenuOpen(prev => !prev);
   };
 
-  const isMenuVisible = isMobile || isTablet;
+  const isMenuVisible = ismobile || istablet;
 
   return (
     <HeaderWrapper>
@@ -32,7 +29,7 @@ export const Header = () => {
             <Link to="/">
               <Logo />
             </Link>
-            <Nav isMobile={isMobile} isMobileMenuOpen={false} />
+            <Nav ismobile={ismobile} isMobileMenuOpen={false} />
             {isLoggedIn ? <UserNav /> : <AuthNav />}
           </Navigation>
           <BurgerBtn onClick={toggleMenu} />
@@ -40,8 +37,8 @@ export const Header = () => {
       </Container>
       {isMenuVisible && isMobileMenuOpen && (
         <MobileMenu
-          isMobile={isMobile}
-          isTablet={isTablet}
+          ismobile={ismobile}
+          istablet={istablet}
           isMobileMenuOpen={isMobileMenuOpen}
           onClose={toggleMenu}
         />

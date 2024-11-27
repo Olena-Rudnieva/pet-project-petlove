@@ -30,6 +30,14 @@ export const UpperWrapper = styled.div`
 
 export const FiltersBlock = styled.div`
   width: 100%;
+
+  @media (min-width: 768px) {
+    width: 150px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 190px;
+  }
 `;
 
 export const BottomWrapper = styled.div`

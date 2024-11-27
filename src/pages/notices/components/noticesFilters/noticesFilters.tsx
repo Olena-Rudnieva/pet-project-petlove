@@ -5,7 +5,12 @@ import {
   UpperWrapper,
 } from './noticesFilters.styled';
 
-import { CategoriesFilter, GenderFilter, SpeciesFilter } from './components';
+import {
+  selectCategories,
+  selectGender,
+  selectSpecies,
+} from '../../../../redux/notices';
+import { SelectFilter } from '../selectFilter';
 
 interface NoticesFiltersProps {
   category: string;
@@ -28,14 +33,29 @@ export const NoticesFilters = ({
     <Form>
       <UpperWrapper>
         <FiltersBlock>
-          <CategoriesFilter category={category} setCategory={setCategory} />
+          <SelectFilter
+            value={category}
+            setValue={setCategory}
+            selector={selectCategories}
+            placeholder="Categories"
+          />
         </FiltersBlock>
         <FiltersBlock>
-          <GenderFilter gender={gender} setGender={setGender} />
+          <SelectFilter
+            value={gender}
+            setValue={setGender}
+            selector={selectGender}
+            placeholder="By gender"
+          />
         </FiltersBlock>
       </UpperWrapper>
       <BottomWrapper>
-        <SpeciesFilter species={species} setSpecies={setSpecies} />
+        <SelectFilter
+          value={species}
+          setValue={setSpecies}
+          selector={selectSpecies}
+          placeholder="By type"
+        />
       </BottomWrapper>
     </Form>
   );

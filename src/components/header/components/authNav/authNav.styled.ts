@@ -10,7 +10,6 @@ export const AuthNavWrapper = styled.div<AuthNavWrapperProps>`
   display: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 'flex' : 'none')};
   flex-direction: ${({ isMobileMenuOpen }) =>
     isMobileMenuOpen ? 'column' : 'row'};
-  /* display: none; */
   gap: 8px;
 
   @media (min-width: 768px) {

@@ -59,20 +59,6 @@ export const logIn = createAsyncThunk(
   }
 );
 
-// export const fetchCurrentUser = createAsyncThunk(
-//   'auth/currentUser',
-//   async (_, thunkAPI) => {
-//     try {
-//       const res = await axios.get(CURRENT_USER_URL);
-//       token.set(res.data.token);
-//       console.log(res.data);
-//       return res.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
 export const fetchCurrentUserFull = createAsyncThunk(
   'auth/currentUserFull',
   async (_, thunkAPI) => {

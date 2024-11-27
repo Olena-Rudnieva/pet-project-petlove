@@ -12,8 +12,8 @@ import {
 import { useMediaQuery } from 'react-responsive';
 
 export const Hero = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
-  const isTablet = useMediaQuery({
+  const ismobile = useMediaQuery({ query: '(max-width: 767px)' });
+  const istablet = useMediaQuery({
     query: '(min-width: 768px) and (max-width: 1279px)',
   });
   const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' });
@@ -30,8 +30,8 @@ export const Hero = () => {
         </Text>
       </TextWrapper>
 
-      {isMobile && <Image src={heroImgMobile} alt="Girl with a dog" />}
-      {isTablet && <Image src={heroImgTablet} alt="Girl with a dog" />}
+      {ismobile && <Image src={heroImgMobile} alt="Girl with a dog" />}
+      {istablet && <Image src={heroImgTablet} alt="Girl with a dog" />}
       {isDesktop && <Image src={heroImgDesktop} alt="Girl with a dog" />}
     </HeroWrapper>
   );
